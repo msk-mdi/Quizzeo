@@ -32,7 +32,9 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                         header('location: ../pages/company/company.php');
                         exit();
                     }
-                    if (($line[0] == 'Admin')) {
+
+                    // admin page
+                    if (($line[0] == 'User')) {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../pages/admin/admin.php');

@@ -1,10 +1,8 @@
 <?php
 include('../accueil/header.php');
-if(empty($_SESSION['identifiant'])){
-    ?>
+if(empty($_SESSION['identifiant'])){?>
             <!DOCTYPE html>
             <html lang="en">
-
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
