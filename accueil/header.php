@@ -14,14 +14,14 @@
                 <img src="./assets/quizzeo.png" alt="logo"/> 
             </div>
             <ul>
-                <li>Home</li>
-                <li>My Quizz</li>
-                <li>Create</li>
+                <li class='home'>Home</li>
+                <li class='myquizz'>My Quizz</li>
+                <li class='create'>Create</li>
             </ul>
         </nav>
         <div class = 'login'>
-            <a href="../connexion/connexion.php"><i class="fa-solid fa-user" style="color: #9a79fb;"></i></a>
-            <a href="../connexion/connexion.php"><h2>Connexion</h2></a>
+            <a href="../connexion/connexion.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
+            <a href="../connexion/connexion.php"><h3>Login</h3></a>
         </div>
     </header>
 </body>
