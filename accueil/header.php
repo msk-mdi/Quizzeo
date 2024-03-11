@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizzeo</title>
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../accueil/header.css">
     <script src="https://kit.fontawesome.com/3b9e7859ca.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav>
             <div class='logo'>
-                <img src="./assets/quizzeo.png" alt="logo"/> 
+                <img src="../accueil/assets/quizzeo.png" alt="logo"/> 
             </div>
             <ul>
                 <li class='home'>Home</li>
@@ -20,8 +20,8 @@
             </ul>
         </nav>
         <div class = 'login'>
-            <a href="../connexion/connexion.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
-            <a href="../connexion/connexion.php"><h3>Login</h3></a>
+            <a href="../login/connection.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
+            <a href="../login/connection.php"><h3>Login</h3></a>
         </div>
     </header>
 </body>
