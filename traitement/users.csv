@@ -1,4 +1,7 @@
 type,lastname,firstname,id,password
+
+Admin,admin,minda,leA,$2y$10$FMi8Z9B7CRGWFx3zIAyTSu1e/gf8k3r7vDJqp93urJ64QfCVj6wru
+
 User,Mahi,Amine,Mino,$2y$10$w3zGKJrcNIq6SGCrdEzt0.0VnxbDaWEvMnQcJJnY7vH.3OK6kquga
 User,msakni,mehdi,mehdi,$2y$10$Ae4KbsqENBrGhGXx/0OUhO11APlaua7qz9fzmbGZKheShC2gYRuIe
 
