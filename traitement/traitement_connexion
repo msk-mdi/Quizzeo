@@ -8,27 +8,31 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
 
     if ($file) {
         while (($line = fgetcsv($file)) !== false) {
-            if ($line[2] === $_POST['id']) {
-                if (password_verify($_POST['password'], $line[3])) {
-                    if (($line[1] == 'user')) {
+            if ($line[3] === $_POST['id']) {
+                if (password_verify($_POST['password'], $line[4])) {
+
+                    if (($line[0] == 'user'))
+                    {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../accueil/user.php');
                         exit();
                     }
-                    if (($line[1] == 'school')) {
+                    if (($line[0] == 'school'))
+                    {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../accueil/school.php');
                         exit();
                     }
-                    if (($line[1] == 'company')) {
+                    if (($line[0] == 'company'))
+                    {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../accueil/company.php');
                         exit();
                     }
-                    if (($line[1] == 'ADMIN')) {
+                    if (($line[0] == 'ADMIN')) {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../accueil/admin.php');
