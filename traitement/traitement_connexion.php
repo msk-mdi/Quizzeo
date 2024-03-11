@@ -22,22 +22,22 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../pages/school/school.php');
+                        header('location: ../school/school.php');
                         exit();
                     }
                     if (($line[0] == 'Company'))
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../pages/company/company.php');
+                        header('location: ../company/company.php');
                         exit();
                     }
 
                     // admin page
-                    if (($line[0] == 'User')) {
+                    if (($line[0] == 'Admin')) {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../pages/admin/admin.php');
+                        header('location: ../admin/admin.php');
                         exit();
                     }
                 }
