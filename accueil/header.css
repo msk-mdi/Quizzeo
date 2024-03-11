@@ -55,6 +55,7 @@ nav ul li{
 .create:hover{
     background-color: rgb(255, 218, 85) ;
     color: white;
+    
 }
 
 
@@ -75,4 +76,15 @@ nav ul li{
 .login a {
     text-decoration: none;
     font-size: 22px;
+}
+
+.quiz {
+    text-decoration: none;
+    color: rgb(255, 218, 85);
+}
+
+.quiz:hover{
+    background-color: rgb(255, 218, 85) ;
+    color: white;
+    border-radius: 5px;
 }

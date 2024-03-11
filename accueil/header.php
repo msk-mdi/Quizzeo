@@ -18,7 +18,7 @@
             <ul>
                 <li class='home'>Home</li>
                 <li class='myquizz'>My Quizz</li>
-                <li class='create'>Create</li>
+                <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
             </ul>
         </nav>
         <div class = 'login'>
