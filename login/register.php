@@ -23,13 +23,13 @@ if(empty($_SESSION['identifiant'])){
                                 <option value="Company">Company</option>
                                 <option value="Admin">Admin</option>
                             </select>
-                        <label for="nom">Nom :</label>
+                        <label for="lastname">Last Name :</label>
                         <input type="text" id="nom" name="nom" required>
-                        <label for="prenom">Prénom :</label>
+                        <label for="firstname">First Name :</label>
                         <input type="text" id="prenom" name="prenom" required>
-                        <label for="identifiant">Identifiant :</label>
+                        <label for="id">New Id :</label>
                         <input type="text" id="identifiant" name="identifiant" required>
-                        <label for="mot_de_passe">Mot de passe :</label>
+                        <label for="password">Password :</label>
                         <input type="password" id="mot_de_passe" name="mot_de_passe" required>
                         <input type="submit" value="S'inscrire">
                     </form>
