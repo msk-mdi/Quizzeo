@@ -2,6 +2,11 @@
 session_start();
 $error;
 
+echo $line[0];
+echo $line[1];
+echo $line[2];
+echo $line[3];
+
 if (isset($_POST['id']) && isset($_POST['password'])) {
     $file_name = 'users.csv';
     $file = fopen($file_name, 'r');
