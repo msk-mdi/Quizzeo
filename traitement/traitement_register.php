@@ -17,5 +17,5 @@ if (isset($_POST['type']) && isset($_POST['lastname']) && isset($_POST['firstnam
     fputcsv($file, [$_POST['type'], $_POST['lastname'], $_POST['firstname'], $_POST['id'], $password_hash]);
     fclose($file);
     $_SESSION['id'] = $_POST['id'];
-    header('location: ../accueil/header.php');
+    header('location: ../accueil/accueil.php');
 }

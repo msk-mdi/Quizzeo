@@ -24,13 +24,13 @@ if(empty($_SESSION['identifiant'])){
                                 <option value="Admin">Admin</option>
                             </select>
                         <label for="lastname">Last Name :</label>
-                        <input type="text" id="nom" name="nom" required>
+                        <input type="text" id="lastname" name="lastname" required>
                         <label for="firstname">First Name :</label>
-                        <input type="text" id="prenom" name="prenom" required>
+                        <input type="text" id="firstname" name="firstname" required>
                         <label for="id">New Id :</label>
-                        <input type="text" id="identifiant" name="identifiant" required>
+                        <input type="text" id="id" name="id" required>
                         <label for="password">Password :</label>
-                        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+                        <input type="password" id="password" name="password" required>
                         <input type="submit" value="S'inscrire">
                     </form>
                     <p>Vous avez un compte ? <a href="connection.php"> Connexion</a></p>
