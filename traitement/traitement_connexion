@@ -11,28 +11,28 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
             if ($line[3] === $_POST['id']) {
                 if (password_verify($_POST['password'], $line[4])) {
 
-                    if (($line[0] == 'user'))
+                    if (($line[0] == 'User'))
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../pages/user/user.php');
                         exit();
                     }
-                    if (($line[0] == 'school'))
+                    if (($line[0] == 'School'))
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../pages/school/school.php');
                         exit();
                     }
-                    if (($line[0] == 'company'))
+                    if (($line[0] == 'Company'))
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../pages/company/company.php');
                         exit();
                     }
-                    if (($line[0] == 'ADMIN')) {
+                    if (($line[0] == 'Admin')) {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
                         header('location: ../pages/admin/admin.php');
