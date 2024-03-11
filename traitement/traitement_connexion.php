@@ -15,7 +15,7 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../pages/user/user.php');
+                        header('location: ../user/user.php');
                         exit();
                     }
                     if (($line[0] == 'School'))
