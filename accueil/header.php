@@ -11,7 +11,9 @@
     <header>
         <nav>
             <div class='logo'>
+                <a href="../accueil/accueil.php">
                 <img src="../accueil/assets/quizzeo.png" alt="logo"/> 
+                </a>
             </div>
             <ul>
                 <li class='home'>Home</li>
