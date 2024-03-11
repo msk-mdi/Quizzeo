@@ -1,0 +1,55 @@
+<?php
+session_start();
+$error;
+
+if (isset($_POST['id']) && isset($_POST['password'])) {
+    $file_name = 'users.csv';
+    $file = fopen($file_name, 'r');
+
+    if ($file) {
+        while (($line = fgetcsv($file)) !== false) {
+            if ($line[2] === $_POST['id']) {
+                if (password_verify($_POST['password'], $line[3])) {
+                    if (($line[1] == 'user')) {
+                        $_SESSION['id'] = $_POST['id'];
+                        fclose($file);
+                        header('location: ../accueil/user.php');
+                        exit();
+                    }
+                    if (($line[1] == 'school')) {
+                        $_SESSION['id'] = $_POST['id'];
+                        fclose($file);
+                        header('location: ../accueil/school.php');
+                        exit();
+                    }
+                    if (($line[1] == 'company')) {
+                        $_SESSION['id'] = $_POST['id'];
+                        fclose($file);
+                        header('location: ../accueil/company.php');
+                        exit();
+                    }
+                    if (($line[1] == 'ADMIN')) {
+                        $_SESSION['id'] = $_POST['id'];
+                        fclose($file);
+                        header('location: ../accueil/admin.php');
+                        exit();
+                    }
+                }
+                else
+                {
+                    $error = "Le mot de passe est incorrect.";
+                }
+            }
+            else
+            {
+                $error = "L'id n'existe pas.";
+            }
+        }
+        fclose($file);
+    }
+    else
+    {
+        $error = "Erreur lors de l'ouverture du fichier.";
+    }
+    echo $error;
+}
