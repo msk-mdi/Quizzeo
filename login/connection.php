@@ -16,10 +16,10 @@ if(empty($_SESSION['id'])){
             <div class="container">
                 <h2>Connexion</h2>
                 <form action="../traitement/traitement_connexion.php" method="post">
-                    <label for="identifiant">Identifiant :</label>
-                    <input type="text" id="identifiant" name="identifiant" required>
-                    <label for="mot_de_passe">Mot de passe :</label>
-                    <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+                    <label for="id">Identifiant :</label>
+                    <input type="text" id="id" name="id" required>
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
                     <input type="submit" value="Se connectez">
                 </form>
                 <p>Vous n'avez pas de compte ? <a href="register.php"> Inscrivez-vous</a></p>
