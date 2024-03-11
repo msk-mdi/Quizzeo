@@ -16,13 +16,13 @@ if(empty($_SESSION['id'])){
             <div class="container">
                 <h2>Connexion</h2>
                 <form action="../traitement/traitement_connexion.php" method="post">
-                    <label for="id">Identifiant :</label>
+                    <label for="id">Your ID :</label>
                     <input type="text" id="id" name="id" required>
-                    <label for="password">Mot de passe :</label>
+                    <label for="password">Password :</label>
                     <input type="password" id="password" name="password" required>
-                    <input type="submit" value="Se connectez">
+                    <input type="submit" value="Connect">
                 </form>
-                <p>Vous n'avez pas de compte ? <a href="register.php"> Inscrivez-vous</a></p>
+                <p>You have not an account ? <a href="register.php"> Register</a></p>
             </div>
         </body>
         </html>

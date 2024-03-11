@@ -39,7 +39,6 @@ session_start();
                 <a href="../login/connection.php"><h3>Login</h3></a>
                 <?php
             }
-            
             ?>
         </div>
     </header>

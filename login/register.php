@@ -14,12 +14,11 @@ if(empty($_SESSION['identifiant'])){?>
                 <div class="container">
                     <h2>Inscription</h2>
                     <form action="../traitement/traitement_register.php" method="post">
-                        <label for="type">Type of user :</label><br>
+                        <label for="type">Type of user :</label>
                             <select id="type" name="type">
                                 <option value="User">User</option>
                                 <option value="School">School</option>
                                 <option value="Company">Company</option>
-                                <option value="Admin">Admin</option>
                             </select>
                         <label for="lastname">Last Name :</label>
                         <input type="text" id="lastname" name="lastname" required>
@@ -29,9 +28,9 @@ if(empty($_SESSION['identifiant'])){?>
                         <input type="text" id="id" name="id" required>
                         <label for="password">Password :</label>
                         <input type="password" id="password" name="password" required>
-                        <input type="submit" value="S'inscrire">
+                        <input type="submit" value="Register">
                     </form>
-                    <p>Vous avez un compte ? <a href="connection.php"> Connexion</a></p>
+                    <p>You have an account ? <a href="connection.php"> Connection</a></p>
                 </div>
             </body>
 
