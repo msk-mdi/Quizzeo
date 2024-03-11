@@ -15,27 +15,27 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../accueil/user.php');
+                        header('location: ../pages/user/user.php');
                         exit();
                     }
                     if (($line[0] == 'school'))
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../accueil/school.php');
+                        header('location: ../pages/school/school.php');
                         exit();
                     }
                     if (($line[0] == 'company'))
                     {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../accueil/company.php');
+                        header('location: ../pages/company/company.php');
                         exit();
                     }
                     if (($line[0] == 'ADMIN')) {
                         $_SESSION['id'] = $_POST['id'];
                         fclose($file);
-                        header('location: ../accueil/admin.php');
+                        header('location: ../pages/admin/admin.php');
                         exit();
                     }
                 }
