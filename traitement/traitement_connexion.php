@@ -36,6 +36,7 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                     // admin page
                     if (($line[0] == 'Admin')) {
                         $_SESSION['id'] = $_POST['id'];
+                        $_SESSION['admin'] = true;
                         fclose($file);
                         header('location: ../admin/admin.php');
                         exit();
