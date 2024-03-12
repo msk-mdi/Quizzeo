@@ -1,12 +1,11 @@
 <?php
 include('../accueil/header.php');
-if(empty($_SESSION['identifiant'])){
-    ?>
+if(empty($_SESSION['identifiant'])){?>
             <!DOCTYPE html>
             <html lang="en">
-
             <head>
                 <meta charset="UTF-8">
+                <script src="https://www.google.com/recaptcha/api.js"></script>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title></title>
                 <link rel="stylesheet" href="./register.css">
@@ -31,6 +30,7 @@ if(empty($_SESSION['identifiant'])){
                         <input type="text" id="id" name="id" required>
                         <label for="password">Password :</label>
                         <input type="password" id="password" name="password" required>
+                        <div class="g-recaptcha" data-sitekey="6LcWdpYpAAAAADPRbtC1iHBXHMHE9XI56grmpPHz"></div>
                         <input type="submit" value="S'inscrire">
                     </form>
                     <p>Vous avez un compte ? <a href="connection.php"> Connexion</a></p>

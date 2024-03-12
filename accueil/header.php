@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +26,21 @@
             </ul>
         </nav>
         <div class = 'login'>
-            <a href="../login/connection.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
-            <a href="../login/connection.php"><h3>Login</h3></a>
+            <?php
+            if(isset($_SESSION['id'])){
+                ?>
+                <a href="../login/deconnection.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
+                <a href="../login/deconnection.php"><h3>Logout</h3></a>
+                <?php
+            }
+            else{
+                ?>
+                <a href="../login/connection.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
+                <a href="../login/connection.php"><h3>Login</h3></a>
+                <?php
+            }
+            
+            ?>
         </div>
     </header>
 </body>
