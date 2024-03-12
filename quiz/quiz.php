@@ -29,7 +29,10 @@ include  '../accueil/header.php';
         <input type="text" name="question" required><br>
         
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 78aef3f2fd25cad77297ee84dda2a6c48dabd175
         <label>Réponse correcte:</label><br>
         <select name="reponse_correcte" required>
             <option value="">Choisir</option>
