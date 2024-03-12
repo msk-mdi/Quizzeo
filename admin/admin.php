@@ -7,7 +7,7 @@ include('../accueil/header.php');
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Admin</title>
     </head>
     <body>
         <h1>Admin page</h1>
@@ -21,22 +21,18 @@ include('../accueil/header.php');
             {
                 echo "<li>";
 
-                foreach ($line as $cell)
-                {
-                    echo "<span>$cell</span>";
-                }
-
-                echo "</li>";
-
                 if ($Row1)
                 {
                     echo "<li><strong>Row 0:</strong>";
                 }
 
-                foreach ($line as $cell)
+                                echo "</li>";
+
+                foreach ($line as $row)
                 {
-                    echo "<span>$cell</span>";
+                    echo "<span>$row</span>";
                 }
+
                 echo "</li>";
                 $Row1 = false;
             }
