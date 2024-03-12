@@ -26,7 +26,7 @@ include('../accueil/header.php');
                     echo "<li><strong>Row 0:</strong>";
                 }
 
-                                echo "</li>";
+                echo "</li>";
 
                 foreach ($line as $row)
                 {
