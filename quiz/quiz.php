@@ -25,6 +25,13 @@ include  '../accueil/header.php';
         <label>Choix n°3:</label><br>
         <input type="text" name="question" required><br>
         
+        <label>Réponse correcte:</label><br>
+        <select name="reponse_correcte" required>
+            <option value="">Choisir</option>
+            <option value="reponse1">Choix n°1</option>
+            <option value="reponse2">Choix n°2</option>
+            <option value="reponse3">Choix n°3</option>
+        </select><br>
 
         <input type="submit" value="VALIDER">
 
