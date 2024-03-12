@@ -20,14 +20,10 @@ if(empty($_SESSION['identifiant'])){?>
                                 <option value="School">School</option>
                                 <option value="Company">Company</option>
                             </select>
-                        <label for="lastname">Last Name :</label>
-                        <input type="text" id="lastname" name="lastname" required>
-                        <label for="firstname">First Name :</label>
-                        <input type="text" id="firstname" name="firstname" required>
-                        <label for="id">New Id :</label>
-                        <input type="text" id="id" name="id" required>
-                        <label for="password">Password :</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="text" placeholder='lastname' id="lastname" name="lastname" required>
+                        <input type="text" placeholder='firstname' id="firstname" name="firstname" required>
+                        <input type="text" placeholder='New ID' id="id" name="id" required>
+                        <input type="password" placeholder='password' id="password" name="password" required>
                         <input type="submit" value="Register">
                     </form>
                     <p>You have an account ? <a href="connection.php"> Connection</a></p>
