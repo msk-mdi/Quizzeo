@@ -49,7 +49,8 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
             }
             else
             {
-                $error = "L'id n'existe pas.";
+                fclose($file);
+                header("location: ../login/register.php");
             }
         }
         fclose($file);
