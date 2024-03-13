@@ -20,8 +20,8 @@ session_start();
                 </a>
             </div>
             <ul>
-                <li class='home'>Home</li>
-                <li class='myquizz'>My Quizz</li>
+                <li class='home' href="../accueil/accueil.php">Home</li>
+                <li class='myquizz' href="../quiz/myquiz.php">My Quizz</li>
                 <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
             </ul>
         </nav>
