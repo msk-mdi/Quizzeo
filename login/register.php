@@ -30,7 +30,7 @@ if(empty($_SESSION['identifiant'])){?>
                         <input type="text" id="id" name="id" required>
                         <label for="password">Password :</label>
                         <input type="password" id="password" name="password" required>
-                        <div class="g-recaptcha" data-sitekey="6LcWdpYpAAAAADPRbtC1iHBXHMHE9XI56grmpPHz"></div>
+                        <div class="g-recaptcha" data-sitekey="6LcWdpYpAAAAADPRbtC1iHBXHMHE9XI56grmpPHz" required></div>
                         <input type="submit" value="S'inscrire">
                     </form>
                     <p>Vous avez un compte ? <a href="connection.php"> Connexion</a></p>
