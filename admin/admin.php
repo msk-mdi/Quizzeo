@@ -25,7 +25,6 @@ if(isset($_SESSION['admin'])){
                 while (($line = fgetcsv($file_open)) !== FALSE)
                 {
                     echo "<li>$line[3]</li>";
-                    
                 }
                 fclose($file_open);
                 ?>
