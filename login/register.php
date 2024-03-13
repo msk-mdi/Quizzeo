@@ -22,13 +22,10 @@ if(empty($_SESSION['identifiant'])){?>
                                 <option value="Company">Company</option>
                             </select>
                         <label for="lastname">Last Name :</label>
-                        <input type="text" id="lastname" name="lastname" required>
-                        <label for="firstname">First Name :</label>
-                        <input type="text" id="firstname" name="firstname" required>
-                        <label for="id">New Id :</label>
-                        <input type="text" id="id" name="id" required>
-                        <label for="password">Password :</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="text" placeholder="LastName" id="lastname" name="lastname" required>
+                        <input type="text" placeholder="FirstName" id="firstname" name="firstname" required>
+                        <input type="text" placeholder="New ID" id="id" name="id" required>
+                        <input type="password" placeholder="Password" id="password" name="password" required>
                         <div class="g-recaptcha" data-sitekey="6LcWdpYpAAAAADPRbtC1iHBXHMHE9XI56grmpPHz"></div>
                         <input type="submit" value="S'inscrire">
                     </form>

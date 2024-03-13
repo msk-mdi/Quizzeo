@@ -16,7 +16,7 @@ if(isset($_POST['ajouter_choix'])) {
     <title>Document</title>
 </head>
 <body>
-    <div class ='quiz'>
+    <div class ='quizz'>
         <h1>Créer votre quiz</h1>
         <form action="quiz.php" method="post" id="quizForm">
             <label>Question:</label><br>
