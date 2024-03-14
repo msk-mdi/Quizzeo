@@ -6,9 +6,12 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
     $file_name = 'users.csv';
     $file = fopen($file_name, 'r');
 
-    if ($file) {
-        while (($line = fgetcsv($file)) !== false) {
-            if ($line[3] === $_POST['id']) {
+    if ($file)
+    {
+        while (($line = fgetcsv($file)) == TRUE)
+        {
+            if ($line[3] === $_POST['id'])
+            {
                 if (password_verify($_POST['password'], $line[4]))
                 {
                     if ($line[5] == '1')
@@ -68,8 +71,8 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
     }
     echo $error;
 
-    if(isset($_POST['g-recaptcha-response'])) {
-        // Vérifiez la réponse du captcha avec Google
+    if(isset($_POST['g-recaptcha-response']))
+    {
         $captchaResponse = $_POST['g-recaptcha-response'];
         $url = 'https://www.google.com/recaptcha/api/siteverify';
         $data = array(
@@ -88,5 +91,4 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
         $response = file_get_contents($url, false, $context);
         $responseKeys = json_decode($response, true);
     }
-
 }

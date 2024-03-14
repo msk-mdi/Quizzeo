@@ -15,8 +15,8 @@ if(empty($_SESSION['id'])){
 
         <body>
         <script>
-        function verifierCaptcha() {
-        // Récupérer la réponse du captcha
+        function verifierCaptcha()
+        {
         var response = grecaptcha.getResponse();
 
         // Vérifier si la réponse n'est pas vide

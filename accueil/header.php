@@ -29,25 +29,31 @@ session_start();
                         <li class='myquizz'><a href="../quiz/myquiz.php">My Quizz</a></li>
                         <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li><?php
                     }
-                }
-                if (isset($_SESSION["rôle"]))
-                {
-                    if ($_SESSION['rôle'] == 'Admin')
+                    else if ($_SESSION['rôle'] == 'User')
+                    {?>
+                        <li class='dashboard'><a href="../user/user.php">Dashboard</a></li><?php
+                    }
+                    else if ($_SESSION['rôle'] == 'Admin')
                     {?>
                         <li class='Admin'><a class='Admin' href="../admin/admin.php">Admin</a></li><?php
+                    }
+                    else
+                    {
+                        echo "error avec un rôle qui n'existe pas";
                     }
                 }?>
             </ul>
         </nav>
         <div class = 'login'>
             <?php
-            if(isset($_SESSION['id'])){
+            if(isset($_SESSION['id']))
+            {
                 ?>
                 <a href="../login/deconnection.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
                 <a href="../login/deconnection.php"><h3>Logout</h3></a>
                 <?php
             }
-            else{
+            else {
                 ?>
                 <a href="../login/connection.php"><i class="fa-solid fa-user fa-2xl" style="color: #9a79fb;"></i></a>
                 <a href="../login/connection.php"><h3>Login</h3></a>
