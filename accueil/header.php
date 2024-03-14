@@ -20,10 +20,18 @@ session_start();
                 </a>
             </div>
             <ul>
-                <li class='home'><a class='home' href="../accueil/accueil.php">Home</a></li>
-                <li class='myquizz'><a class='myquizz' href="../quiz/myquiz.php">My Quizz</a></li>
-                <li class='create'><a class='create' href="../quiz/quiz.php">Create</a></li>
-                <?php 
+                <li class='home'><a href="../accueil/accueil.php">Home</a></li>
+                <?php
+                if (isset ($_SESSION["rôle"]))
+                {
+                    if ($_SESSION["rôle"] == 'School' || $_SESSION["rôle"] == 'Company')
+                    {?>
+                        <li class ='Company'><a href="./accueil.php">Home</a></li>
+                        <li class='myquizz'><a href="../quiz/myquiz.php">My Quizz</a></li>
+                        <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
+                        <?php
+                    }
+                }
                 if (isset($_SESSION["rôle"]))
                 {
                     if ($_SESSION['rôle'] == 'Admin')
