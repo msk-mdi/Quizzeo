@@ -23,6 +23,11 @@ session_start();
                 <li class='home'><a href="../accueil/accueil.php">Home</a></li>
                 <li class='myquizz'><a href="../quiz/myquiz.php">My Quizz</a></li>
                 <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
+                <?php if ($_SESSION['rôle'] == 'Admin')
+                {?>
+                    <li class='Admin'><a href="../admin/admin.php">Admin</a></li><?php
+                }
+                else{}?>
             </ul>
         </nav>
         <div class = 'login'>
