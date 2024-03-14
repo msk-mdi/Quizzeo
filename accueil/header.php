@@ -26,7 +26,6 @@ session_start();
                 {
                     if ($_SESSION["rôle"] == 'School' || $_SESSION["rôle"] == 'Company')
                     {?>
-                        <li class ='Company'><a href="./accueil.php">Home</a></li>
                         <li class='myquizz'><a href="../quiz/myquiz.php">My Quizz</a></li>
                         <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
                         <?php
