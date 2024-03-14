@@ -67,4 +67,26 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
         $error = "Erreur lors de l'ouverture du fichier.";
     }
     echo $error;
+
+    if(isset($_POST['g-recaptcha-response'])) {
+        // Vérifiez la réponse du captcha avec Google
+        $captchaResponse = $_POST['g-recaptcha-response'];
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = array(
+            'secret' => $secretKey,
+            'response' => $captchaResponse
+        );
+    
+        $options = array(
+            'http' => array (
+                'method' => 'POST',
+                'content' => http_build_query($data)
+            )
+        );
+    
+        $context = stream_context_create($options);
+        $response = file_get_contents($url, false, $context);
+        $responseKeys = json_decode($response, true);
+    }
+
 }
