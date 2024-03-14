@@ -25,7 +25,7 @@ nav img{
 nav ul {
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    width: 400px;
     align-items: center;
 }
 
@@ -36,6 +36,7 @@ nav ul li{
     border-radius: 5px;
 }
 nav ul li a{
+    border-radius: 5px;
     text-decoration: none;
 }
 .home{
