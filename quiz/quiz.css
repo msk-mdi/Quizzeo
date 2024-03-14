@@ -12,3 +12,8 @@
 .quizz h1{
     font-family: "Nunito", sans-serif;
 }
+#question{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
