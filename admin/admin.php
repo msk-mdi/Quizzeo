@@ -21,11 +21,9 @@ if(isset($_SESSION['admin'])){
                 $file_name = '../traitement/users.csv';
                 $file_open = fopen($file_name,'r');
 
-                $Row1 = true;
                 while (($line = fgetcsv($file_open)) !== FALSE)
                 {
                     echo "<li>$line[3]</li>";
-                    
                 }
                 fclose($file_open);
                 ?>
