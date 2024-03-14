@@ -41,7 +41,7 @@ include('../accueil/header.php');
                 '</select><br>';
             if (nombreDeQuestions > 1) {
                 var supprimerButton = document.createElement('button');
-                supprimerButton.textContent = "Supprimer la dernière question. ";
+                supprimerButton.textContent = "Supprimer la question précédente";
                 supprimerButton.type = "button";
                 supprimerButton.onclick = function() {
                     supprimerDerniereQuestion();
@@ -65,12 +65,16 @@ include('../accueil/header.php');
     }
 </script>
 
+</script>
+
 
 </head>
 <body>
     <div class='quizz'>
         <h1>Créer votre quiz</h1>
         <form action="../traitement/traitement_quiz.php" method="post" id="quizForm">
+            <label>Titre du quiz:</label><br>
+            <input type="text" name="titre_quiz" required><br> <!-- Champ d'entrée pour le titre du quiz -->
             <div id="questionsContainer">
                 <!-- Les questions seront ajoutées dynamiquement ici -->
             </div>

@@ -1,28 +1,49 @@
-<?php 
-include '../accueil/header.php';
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['valider'])) {
+    // Vérifier si le bouton de soumission a été cliqué et si des données ont été envoyées
+    $titreQuiz = $_POST['titre_quiz'];
+    $questionsData = array();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST['question']) && isset($_POST['reponse_correcte'])) {
-        // Création d'un tableau avec les données à écrire dans le fichier CSV
-        $data = array($_POST['question']);
-        foreach ($_POST as $key => $value) {
-            // Vérifie si la clé commence par 'choix_n°'
-            if (substr($key, 0, 9) === 'choix_n°') {
-                $data[] = $value;
-            }
+    // Parcourir les données pour chaque question
+    for ($i = 1; $i <= 5; $i++) {
+        if (isset($_POST['question' . $i])) {
+            $question = $_POST['question' . $i];
+            $choix1 = $_POST['question' . $i . '_1'];
+            $choix2 = $_POST['question' . $i . '_2'];
+            $choix3 = $_POST['question' . $i . '_3'];
+            $choix4 = $_POST['question' . $i . '_4'];
+            $reponseCorrecte = $_POST['reponse_correcte' . $i];
+
+            // Ajouter les données de la question à un tableau
+            $questionsData[] = array(
+                'question' => $question,
+                'choix1' => $choix1,
+                'choix2' => $choix2,
+                'choix3' => $choix3,
+                'choix4' => $choix4,
+                'reponseCorrecte' => $reponseCorrecte
+            );
         }
-        $data[] = $_POST['reponse_correcte'];
-
-        // Ouverture du fichier CSV et écriture des données
-        $csv_file = 'quiz.csv';
-        $file = fopen($csv_file, 'a');
-        fputcsv($file, $data);
-        fclose($file);
-
-        echo "Les données ont été ajoutées au fichier CSV avec succès.";
-        header('location: ../accueil/accueil.php');
-    } else {
-        echo "Toutes les données requises ne sont pas disponibles.";
     }
+
+    // Écrire les données dans un fichier CSV
+    $csvFile = fopen("quiz_data.csv", "w");
+
+    // Écrire l'en-tête CSV
+    fputcsv($csvFile, array('Nom du quiz', 'Question', 'Choix 1', 'Choix 2', 'Choix 3', 'Choix 4', 'Réponse correcte'));
+
+    // Écrire les données de chaque question dans le fichier CSV
+    foreach ($questionsData as $questionData) {
+        $row = array($titreQuiz, $questionData['question'], $questionData['choix1'], $questionData['choix2'], $questionData['choix3'], $questionData['choix4'], $questionData['reponseCorrecte']);
+        fputcsv($csvFile, $row);
+    }
+
+    fclose($csvFile);
+
+    echo "Le fichier CSV a été généré avec succès.";
+} else {
+    // Si la méthode HTTP n'est pas POST ou si le bouton de soumission n'a pas été cliqué, renvoyer une erreur
+    http_response_code(405);
+    echo "Méthode non autorisée.";
 }
 ?>
