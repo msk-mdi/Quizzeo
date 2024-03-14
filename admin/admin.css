@@ -9,3 +9,8 @@
     gap: 20px;
     font-family: "Nunito", sans-serif;
 }
+
+button{
+    border-radius: 7px;
+    font-family: "Nunito", sans-serif;
+}
