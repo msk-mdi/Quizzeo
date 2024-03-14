@@ -1,5 +1,4 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['valider'])) {
     // Vérifier si le bouton de soumission a été cliqué et si des données ont été envoyées
     $titreQuiz = $_POST['titre_quiz'];
     $questionsData = array();
@@ -41,9 +40,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['valider'])) {
     fclose($csvFile);
 
     echo "Le fichier CSV a été généré avec succès.";
-} else {
-    // Si la méthode HTTP n'est pas POST ou si le bouton de soumission n'a pas été cliqué, renvoyer une erreur
-    http_response_code(405);
-    echo "Méthode non autorisée.";
-}
-?>
