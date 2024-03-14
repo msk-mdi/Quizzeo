@@ -13,21 +13,21 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                 {
                     if ($line[5] == '1')
                     {
-                        if (($line[0] == 'User'))
+                        if ($line[0] == 'User')
                         {
                             $_SESSION['id'] = $_POST['id'];
                             fclose($file);
                             header('location: ../user/user.php');
                             exit();
                         }
-                        if (($line[0] == 'School'))
+                        if ($line[0] == 'School')
                         {
                             $_SESSION['id'] = $_POST['id'];
                             fclose($file);
                             header('location: ../school/school.php');
                             exit();
                         }
-                        if (($line[0] == 'Company'))
+                        if ($line[0] == 'Company')
                         {
                             $_SESSION['id'] = $_POST['id'];
                             fclose($file);
@@ -36,7 +36,7 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                         }
 
                         // admin page
-                        if (($line[0] == 'Admin')) {
+                        if ($line[0] == 'Admin') {
                             $_SESSION['id'] = $_POST['id'];
                             $_SESSION['admin'] = true;
                             fclose($file);
