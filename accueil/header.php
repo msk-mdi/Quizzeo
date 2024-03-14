@@ -34,7 +34,7 @@ session_start();
                 {
                     if ($_SESSION['rôle'] == 'Admin')
                     {?>
-                        <li class='Admin'><a href="../admin/admin.php">Admin</a></li><?php
+                        <li class='Admin'><a class='Admin' href="../admin/admin.php">Admin</a></li><?php
                     }
                 }?>
             </ul>
