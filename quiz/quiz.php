@@ -76,10 +76,10 @@ include('../accueil/header.php');
             <label>Titre du quiz:</label><br>
             <input type="text" name="titre_quiz" required><br> <!-- Champ d'entrée pour le titre du quiz -->
             <div id="questionsContainer">
-                <!-- Les questions seront ajoutées dynamiquement ici -->
+                
             </div>
             <button type="button" onclick="ajouterQuestion()">Ajouter une question</button><br>
-            <input type="submit" value="VALIDER"> <!-- Placé à l'intérieur du formulaire -->
+            <input id="valide" type="submit" value="VALIDER"> 
         </form>
     </div>
 </body>

@@ -12,8 +12,27 @@
 .quizz h1{
     font-family: "Nunito", sans-serif;
 }
-#question{
+
+.question{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    font-family: "Nunito", sans-serif;
+}
+
+button {
+    border-radius: 7px;
+    font-family: "Nunito", sans-serif;
+}
+
+#valide {
+    border-radius: 7px;
+    font-family: "Nunito", sans-serif; 
+}
+
+input {
+    border-radius: 7px;
+}
+
+option {
+    border-radius: 7px;
 }
