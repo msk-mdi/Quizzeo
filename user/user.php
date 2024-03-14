@@ -1,5 +1,5 @@
 <?php
-include '../../accueil/header.php';
+include '../accueil/header.php';
 ?>
 
 <!DOCTYPE html>

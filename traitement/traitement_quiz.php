@@ -1,4 +1,5 @@
 <?php
+session_start();
     // Vérifier si le bouton de soumission a été cliqué et si des données ont été envoyées
     $titreQuiz = $_POST['titre_quiz'];
     $questionsData = array();
@@ -26,17 +27,13 @@
     }
 
     // Écrire les données dans un fichier CSV
-    $csvFile = fopen("quiz_data.csv", "w");
-
-    // Écrire l'en-tête CSV
-    fputcsv($csvFile, array('Nom du quiz', 'Question', 'Choix 1', 'Choix 2', 'Choix 3', 'Choix 4', 'Réponse correcte'));
-
+    $file = fopen("quiz_data.csv", "a");
     // Écrire les données de chaque question dans le fichier CSV
     foreach ($questionsData as $questionData) {
-        $row = array($titreQuiz, $questionData['question'], $questionData['choix1'], $questionData['choix2'], $questionData['choix3'], $questionData['choix4'], $questionData['reponseCorrecte']);
-        fputcsv($csvFile, $row);
+        $row = array($_SESSION['rôle'], $titreQuiz, $questionData['question'], $questionData['choix1'], $questionData['choix2'], $questionData['choix3'], $questionData['choix4'], $questionData['reponseCorrecte']);
+        fputcsv($file, $row);
     }
 
-    fclose($csvFile);
+    fclose($file);
 
     echo "Le fichier CSV a été généré avec succès.";

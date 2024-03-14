@@ -1,7 +1,6 @@
 <?php
 
 include('../accueil/header.php');
-
 ?>
 
 <!DOCTYPE html>

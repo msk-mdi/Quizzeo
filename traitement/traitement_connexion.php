@@ -13,7 +13,8 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                 {
                     if ($line[5] == '1')
                     {
-                        if ($line[0] == 'User')
+                        $_SESSION['rôle'] = $line[0];
+                        if (($line[0] == 'User'))
                         {
                             $_SESSION['id'] = $_POST['id'];
                             fclose($file);
