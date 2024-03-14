@@ -14,7 +14,7 @@ if (isset($_POST['type']) && isset($_POST['lastname']) && isset($_POST['firstnam
 
     $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    fputcsv($file, [$_POST['type'], $_POST['lastname'], $_POST['firstname'], $_POST['id'], $password_hash]);
+    fputcsv($file, [$_POST['type'], $_POST['lastname'], $_POST['firstname'], $_POST['id'], $password_hash, '1']);
     fclose($file);
     $_SESSION['id'] = $_POST['id'];
     header('location: ../accueil/accueil.php');
