@@ -31,7 +31,8 @@ session_start();
                     }
                     else if ($_SESSION['rôle'] == 'User')
                     {?>
-                        <li class='dashboard'><a href="../user/user.php">Dashboard</a></li><?php
+                        <li class='dashboard'><a href="../accueil/accueil.php">Dashboard</a></li>
+                        <li class='My_account'><a href="../user/user.php">My account</a></li><?php
                     }
                     else if ($_SESSION['rôle'] == 'Admin')
                     {?>
@@ -39,7 +40,7 @@ session_start();
                     }
                     else
                     {
-                        echo "error avec un rôle qui n'existe pas";
+                        echo "rôle inexistant";
                     }
                 }?>
             </ul>

@@ -1,7 +1,7 @@
 <?php
 include '../accueil/header.php';
 
-if ($_SESSION['id'] == 'User')
+if ($_SESSION['rôle'] == 'User')
 {?>
     <!DOCTYPE html>
     <html lang="en">
@@ -12,6 +12,36 @@ if ($_SESSION['id'] == 'User')
         </head>
         <body>
             <h1>User page</h1>
+            <h3>Current First name</h3>
+            <?php 
+            if (isset($_SESSION['firstname']))
+            {
+                $firstname = $_SESSION['firstname'];
+                echo "<li>$firstname</li>";
+            }?>
+            
+            <h3>Current Last name</h3>
+            <?php
+            if (isset($_SESSION['lastname']))
+            {
+                $lastname = $_SESSION['lastname'];
+                echo "<li>$lastname</li>";
+            }?>
+
+            <h3>Current email</h3>
+            <?php 
+            if (isset($_SESSION['email']))
+            {
+                $email = $_SESSION['email'];
+                echo "<li>$email</li>";
+            }?>
+
+            <input type="text" placeholder="LastName" id="lastname" name="lastname" required>
+            <input type="text" placeholder="FirstName" id="firstname" name="firstname" required>
+            <input type="text" placeholder="Email" id="Email" name="Email" required>
+            <input type="text" placeholder="New ID" id="id" name="id" required>
+            <input type="password" placeholder="Password" id="password" name="password" required>
+            <input type="submit" value="Confirmer les modifications">
         </body>
     </html><?php
 }
@@ -19,10 +49,3 @@ else
 {
     header('location: ../accueil/accueil.php');
 }
-
-// faire ceci:
-// Rôle Utilisateur
-// Le rôle utilisateur permet simplement de répondre aux questionnaires. La page de base lors de la connexion est un dashboard qui indique simplement les questionnaires auxquels il a déjà répondu.
-// Il doit également avoir à sa disposition une page de gestion de profil lui permettant de modifier ses informations personnelles (nom, prénom, adresse mail, mot de passe, ...)
-
-// L'accès aux quiz se fait sur la fourniture d'un lien simple d'accès direct au quiz.

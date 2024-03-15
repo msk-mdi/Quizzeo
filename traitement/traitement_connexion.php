@@ -17,6 +17,10 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                     if ($line[5] == '1')
                     {
                         $_SESSION['rôle'] = $line[0];
+                        $_SESSION['lastname'] = $line[1];
+                        $_SESSION['firstname'] = $line[2];
+                        $_SESSION['email'] = $line[6];
+                        
                         if (($line[0] == 'User'))
                         {
                             $_SESSION['id'] = $_POST['id'];
@@ -39,7 +43,6 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                             exit();
                         }
 
-                        // admin page
                         if ($line[0] == 'Admin') {
                             $_SESSION['id'] = $_POST['id'];
                             $_SESSION['admin'] = true;
