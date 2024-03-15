@@ -12,28 +12,40 @@ if(empty($_SESSION['identifiant'])){?>
             </head>
 
             <body>
+            <script>
+            function verifierCaptcha() {
+                // Récupérer la réponse du captcha
+                var response = grecaptcha.getResponse();
+
+                // Vérifier si la réponse n'est pas vide
+                if (response.length == 0) {
+                    // Le captcha n'a pas été fait
+                    alert("Veuillez remplir le captcha.");
+                    return false;
+                } else {
+                    // Le captcha a été fait, continuer avec la soumission du formulaire
+                    return true;
+                }
+            }
+</script>
                 <div class="container">
                     <h2>Inscription</h2>
-                    <form action="../traitement/traitement_register.php" method="post">
-                        <label for="type">Type of user :</label><br>
+                    <form action="../traitement/traitement_register.php" method="post" onsubmit="return verifierCaptcha()">
+                        <label for="type">Type of user :</label>
                             <select id="type" name="type">
                                 <option value="User">User</option>
                                 <option value="School">School</option>
                                 <option value="Company">Company</option>
-                                <option value="Admin">Admin</option>
                             </select>
                         <label for="lastname">Last Name :</label>
-                        <input type="text" id="lastname" name="lastname" required>
-                        <label for="firstname">First Name :</label>
-                        <input type="text" id="firstname" name="firstname" required>
-                        <label for="id">New Id :</label>
-                        <input type="text" id="id" name="id" required>
-                        <label for="password">Password :</label>
-                        <input type="password" id="password" name="password" required>
-                        <div class="g-recaptcha" data-sitekey="6LcWdpYpAAAAADPRbtC1iHBXHMHE9XI56grmpPHz"></div>
+                        <input type="text" placeholder="LastName" id="lastname" name="lastname" required>
+                        <input type="text" placeholder="FirstName" id="firstname" name="firstname" required>
+                        <input type="text" placeholder="New ID" id="id" name="id" required>
+                        <input type="password" placeholder="Password" id="password" name="password" required>
+                        <div class="g-recaptcha" data-sitekey="6Le3opgpAAAAAPqnC4hdvBDDCnKvpcMSa9siPbPX"></div>
                         <input type="submit" value="S'inscrire">
                     </form>
-                    <p>Vous avez un compte ? <a href="connection.php"> Connexion</a></p>
+                    <p>You have an account ? <a href="connection.php"> Connection</a></p>
                 </div>
             </body>
 

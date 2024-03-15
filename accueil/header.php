@@ -20,9 +20,24 @@ session_start();
                 </a>
             </div>
             <ul>
-                <li class='home'>Home</li>
-                <li class='myquizz'><a href="../reponsequiz/intquiz.php">My Quizz</a></li>
-                <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
+                <li class='home'><a href="../accueil/accueil.php">Home</a></li>
+                <?php
+                if (isset ($_SESSION["rôle"]))
+                {
+                    if ($_SESSION["rôle"] == 'School' || $_SESSION["rôle"] == 'Company')
+                    {?>
+                        <li class='myquizz'><a href="../quiz/myquiz.php">My Quizz</a></li>
+                        <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
+                        <?php
+                    }
+                }
+                if (isset($_SESSION["rôle"]))
+                {
+                    if ($_SESSION['rôle'] == 'Admin')
+                    {?>
+                        <li class='Admin'><a class='Admin' href="../admin/admin.php">Admin</a></li><?php
+                    }
+                }?>
             </ul>
         </nav>
         <div class = 'login'>
@@ -39,7 +54,6 @@ session_start();
                 <a href="../login/connection.php"><h3>Login</h3></a>
                 <?php
             }
-            
             ?>
         </div>
     </header>
