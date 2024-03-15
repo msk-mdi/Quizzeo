@@ -20,7 +20,7 @@ session_start();
                 </a>
             </div>
             <ul>
-                <li class='home'><a href="../accueil/accueil.php">Home</a></li>
+                <li class="home"><a href="../accueil/accueil.php">Home</a></li>
                 <?php
                 if (isset ($_SESSION["rôle"]))
                 {
