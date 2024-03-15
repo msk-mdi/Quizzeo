@@ -24,8 +24,8 @@ nav img{
 
 nav ul {
     display: flex;
-    justify-content: space-between;
-    width: 300px;
+    justify-content: space-around;
+    width: 400px;
     align-items: center;
 }
 
@@ -44,6 +44,7 @@ nav ul li a{
 .home:hover{
     background-color: rgb(125, 85, 255);
     color: white;
+    border-radius: 5px;
 }
 .myquizz{
     color: rgb(255, 85, 85);
@@ -51,6 +52,7 @@ nav ul li a{
 .myquizz:hover{
     background-color: rgb(255, 85, 85);
     color: white;
+    border-radius: 5px;
 }
 .create{
     color: rgb(255, 218, 85);
@@ -58,7 +60,14 @@ nav ul li a{
 .create:hover{
     background-color: rgb(255, 218, 85) ;
     color: white;
+    border-radius: 5px;
     
+}
+.Admin{
+    color: rgb(111, 111, 111);
+}
+.Admin:hover{
+    color: black;
 }
 
 
@@ -79,15 +88,4 @@ nav ul li a{
 .login a {
     text-decoration: none;
     font-size: 22px;
-}
-
-.quiz{
-    text-decoration: none;
-    color: rgb(255, 218, 85);
-}
-
-.quiz:hover{
-    background-color: rgb(255, 218, 85) ;
-    color: white;
-    border-radius: 5px;
 }
