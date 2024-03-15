@@ -1,6 +1,7 @@
 <?php
 include('../accueil/header.php');
-if(empty($_SESSION['identifiant'])){?>
+if(empty($_SESSION['identifiant']))
+{?>
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -27,7 +28,7 @@ if(empty($_SESSION['identifiant'])){?>
                     return true;
                 }
             }
-</script>
+            </script>
                 <div class="container">
                     <h2>Inscription</h2>
                     <form action="../traitement/traitement_register.php" method="post" onsubmit="return verifierCaptcha()">
@@ -40,6 +41,7 @@ if(empty($_SESSION['identifiant'])){?>
                         <label for="lastname">Last Name :</label>
                         <input type="text" placeholder="LastName" id="lastname" name="lastname" required>
                         <input type="text" placeholder="FirstName" id="firstname" name="firstname" required>
+                        <input type="text" placeholder="Email" id="Email" name="Email" required>
                         <input type="text" placeholder="New ID" id="id" name="id" required>
                         <input type="password" placeholder="Password" id="password" name="password" required>
                         <div class="g-recaptcha" data-sitekey="6Le3opgpAAAAAPqnC4hdvBDDCnKvpcMSa9siPbPX"></div>
@@ -48,7 +50,6 @@ if(empty($_SESSION['identifiant'])){?>
                     <p>You have an account ? <a href="connection.php"> Connection</a></p>
                 </div>
             </body>
-
             </html>
 <?php
 }

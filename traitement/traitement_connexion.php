@@ -7,9 +7,12 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
     $file_name = 'users.csv';
     $file = fopen($file_name, 'r');
 
-    if ($file) {
-        while (($line = fgetcsv($file)) !== false) {
-            if ($line[3] === $_POST['id']) {
+    if ($file)
+    {
+        while (($line = fgetcsv($file)) == TRUE)
+        {
+            if ($line[3] === $_POST['id'])
+            {
                 if (password_verify($_POST['password'], $line[4]))
                 {
                     if ($line[5] == '1')
