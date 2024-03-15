@@ -39,13 +39,14 @@ function afficherQuizzes() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizzes disponibles</title>
+    <link  rel="stylesheet" href="../quiz/myquiz.css"/>
+    <title>Quiz disponibles</title>
     <link rel="stylesheet" href="chemin_vers_le_fichier/quiz.css"> <!-- Assurez-vous d'avoir le bon chemin vers le fichier CSS -->
 </head>
 <body>
+    <h1>Quiz disponibles</h1>
     <div class="quizzes-container">
-        <h1>Quizzes disponibles</h1>
-        <?php afficherQuizzes(); ?>
+          <?php afficherQuizzes(); ?>
     </div>
 </body>
 </html>
