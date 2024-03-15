@@ -38,6 +38,14 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
 .home{
     color: rgb(125, 85, 255);
 }
