@@ -1,37 +1,49 @@
 <?php
-
 include('../accueil/header.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST['question']) && isset($_POST['reponse_correcte'])) {
-        // Récupération de la question
-        $question = $_POST['question'];
+// Fonction pour afficher les boutons play pour chaque quiz
+// Fonction pour afficher les boutons play pour chaque quiz, en évitant les doublons
+function afficherQuizzes() {
+    // Tableau pour stocker les titres des quiz déjà affichés
+    $quizTitres = array();
 
-        // Récupération de la réponse correcte
-        $reponse_correcte = $_POST['reponse_correcte'];
+    // Ouvrir le fichier contenant les titres des quiz
+    $file = fopen("../traitement/quiz_data.csv", "r");
 
-        // Récupération des choix supplémentaires
-        $choix_supplementaires = array();
-        foreach ($_POST as $key => $value) {
-            if (strpos($key, 'choix_n°') === 0) {
-                $choix_supplementaires[] = $value;
-            }
-        }
+    // Parcourir le fichier et stocker les titres des quiz
+    while (($row = fgetcsv($file)) !== false) {
+        $titreQuiz = $row[1]; // Récupérer le titre du quiz
+        $quizTitres[] = $titreQuiz;
+    }
 
-        // Création de la carte du quiz
-        echo '<div class="card">';
-        echo '<div class="card-header">' . $question . '</div>';
-        echo '<div class="card-body">';
-        echo '<ul>';
-        foreach ($choix_supplementaires as $choix) {
-            echo '<li>' . $choix . '</li>';
-        }
-        echo '</ul>';
-        echo '<p>Réponse correcte : ' . $reponse_correcte . '</p>';
-        echo '</div>';
-        echo '</div>';
-    } else {
-        echo "Toutes les données requises ne sont pas disponibles.";
+    fclose($file);
+
+    // Supprimer les doublons de titres de quiz
+    $quizTitres = array_unique($quizTitres);
+
+    // Afficher les boutons play pour chaque titre de quiz
+    foreach ($quizTitres as $titreQuiz) {
+        echo "<div>";
+        echo "<h3>$titreQuiz</h3>";
+        echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button>Play</button></a>"; // Lien vers la page pour jouer au quiz
+        echo "</div>";
     }
 }
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzes disponibles</title>
+    <link rel="stylesheet" href="chemin_vers_le_fichier/quiz.css"> <!-- Assurez-vous d'avoir le bon chemin vers le fichier CSS -->
+</head>
+<body>
+    <div class="quizzes-container">
+        <h1>Quizzes disponibles</h1>
+        <?php afficherQuizzes(); ?>
+    </div>
+</body>
+</html>
