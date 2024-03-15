@@ -12,8 +12,10 @@ function afficherQuizzes() {
 
     // Parcourir le fichier et stocker les titres des quiz
     while (($row = fgetcsv($file)) !== false) {
+        if (isset($row['1'])) {
         $titreQuiz = $row[1]; // Récupérer le titre du quiz
         $quizTitres[] = $titreQuiz;
+        }
     }
 
     fclose($file);
