@@ -80,13 +80,7 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
             'response' => $captchaResponse
         );
     
-        $options = array(
-            'http' => array (
-                'method' => 'POST',
-                'content' => http_build_query($data)
-            )
-        );
-    
+        $options = array('http' => array ('method' => 'POST','content' => http_build_query($data)));
         $context = stream_context_create($options);
         $response = file_get_contents($url, false, $context);
         $responseKeys = json_decode($response, true);
