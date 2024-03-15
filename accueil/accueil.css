@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+h1 {
+    justify-content: center;
+    font-family: "Nunito", sans-serif;
+    align-items: center;
+    display: flex;
+    margin-top: 50px;
+}
+
+@keyframes couleur {
+    
+    0% { color: rgb(125, 85, 255) }
+    33% { color: rgb(255, 85, 85) }
+    66% { color:rgb(255, 218, 85) }
+    100% { color: rgb(125, 85, 255) }
+}
+
+#titre {
+    animation: couleur 3s infinite;
+  }
+
+
+h3 {
+    justify-content: center;
+    font-family: "Nunito", sans-serif;
+    align-items: center;
+    display: flex;
+}
+
+.text-content {
+    display: flex;
+    text-align: center;
+    width: 100px;
+  }
