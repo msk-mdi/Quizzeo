@@ -2,7 +2,7 @@
 include  '../accueil/header.php';
 
 if(isset($_POST['ajouter_choix'])) {
-    // Traitement pour ajouter un choix supplémentaire
+    
 }
 ?>
 
@@ -29,7 +29,7 @@ if(isset($_POST['ajouter_choix'])) {
         <select name="reponse_correcte" required>
             <option value="">Choisir</option>
             <option value="reponse1">Choix n°1</option>
-            <!-- Les autres options seront ajoutées dynamiquement -->
+            
         </select><br>
         
 

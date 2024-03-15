@@ -21,7 +21,7 @@ session_start();
             </div>
             <ul>
                 <li class='home'>Home</li>
-                <li class='myquizz'>My Quizz</li>
+                <li class='myquizz'><a href="../reponsequiz/intquiz.php">My Quizz</a></li>
                 <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li>
             </ul>
         </nav>
