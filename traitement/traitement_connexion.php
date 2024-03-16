@@ -2,7 +2,8 @@
 session_start();
 $error;
 
-if (isset($_POST['id']) && isset($_POST['password'])) {
+if (isset($_POST['id']) && isset($_POST['password']))
+{
     $file_name = 'users.csv';
     $file = fopen($file_name, 'r');
 
@@ -51,9 +52,9 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                             exit();
                         }
                     }
-                    else 
+                    else
                     {
-                        $error = "L'utilisateur a été desactiver";
+                        $error = "L'utilisateur a été désactivé.";
                     }
                 }
                 else
@@ -78,10 +79,7 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
     {
         $captchaResponse = $_POST['g-recaptcha-response'];
         $url = 'https://www.google.com/recaptcha/api/siteverify';
-        $data = array(
-            'secret' => $secretKey,
-            'response' => $captchaResponse
-        );
+        $data = array('secret' => $secretKey,'response' => $captchaResponse);
     
         $options = array('http' => array ('method' => 'POST','content' => http_build_query($data)));
         $context = stream_context_create($options);

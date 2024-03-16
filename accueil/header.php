@@ -1,5 +1,6 @@
 <?php
 session_start();
+$user_id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@ session_start();
                     else if ($_SESSION['rôle'] == 'User')
                     {?>
                         <li class='dashboard'><a href="../accueil/accueil.php">Dashboard</a></li>
-                        <li class='My_account'><a href="../user/user.php">My account</a></li><?php
+                        <li class='My_account'><a href="../user/user.php">My account (<?php echo $user_id?>)</a></li><?php
                     }
                     else if ($_SESSION['rôle'] == 'Admin')
                     {?>
