@@ -5,8 +5,10 @@ $user_id = $_SESSION['id'];
 $filename = "../traitement/users.csv";
 $file = fopen($filename, "r");
 
-if ($_SESSION['rôle'] == 'User') {
-    while (($line = fgetcsv($file)) !== false) {
+if ($_SESSION['rôle'] == 'User')
+{
+    while (($line = fgetcsv($file)) !== false)
+    {
         if ($line[3] == $user_id) {
             echo "<h3>Current Last name</h3>";
             echo "<li>$line[1]</li>";
@@ -43,7 +45,8 @@ if ($_SESSION['rôle'] == 'User') {
         fclose($file);
 
         $file_open = fopen($filename, 'w');
-        foreach ($updatedLines as $updatedLine) {
+        foreach ($updatedLines as $updatedLine)
+        {
             fputcsv($file_open, $updatedLine);
         }
         fclose($file_open);
