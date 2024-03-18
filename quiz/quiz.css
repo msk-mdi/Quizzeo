@@ -36,3 +36,7 @@ input {
 option {
     border-radius: 7px;
 }
+
+.titre {
+    font-family: "Nunito", sans-serif;
+}

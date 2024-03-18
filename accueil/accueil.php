@@ -15,7 +15,7 @@ include('../accueil/header.php');
     <h1 id="titre">BIENVENUE DANS QUIZZEO</h1>
     <br></br>
     <br></br>
-    <div className="text-content">
+    <div class="text-content">
     <h3>Quizzeo est votre destination ultime pour créer des quiz interactifs, divertissants et instructifs en quelques clics seulement. 
     Que vous soyez un enseignant désireux de tester les connaissances de vos élèves, 
     un responsable de formation cherchant à évaluer les compétences de votre équipe, 
