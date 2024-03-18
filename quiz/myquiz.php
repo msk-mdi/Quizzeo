@@ -9,7 +9,7 @@ function afficherQuizzes() {
 
     // Ouvrir le fichier contenant les titres des quiz
     $file = fopen("../traitement/quiz_data.csv", "r");
-
+    fgetcsv($file);
     // Parcourir le fichier et stocker les titres des quiz
     while (($row = fgetcsv($file)) !== false) {
         if (isset($row['1'])) {
