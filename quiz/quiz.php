@@ -5,7 +5,7 @@ include('../accueil/header.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../quiz/quiz.css">
+    <link rel="stylesheet" href="../quiz/quiz.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer votre quiz</title>
@@ -74,7 +74,7 @@ include('../accueil/header.php');
         <h1>Créer votre quiz</h1>
         <form action="../traitement/traitement_quiz.php" method="post" id="quizForm">
             <label class="titre">Titre du quiz:</label><br>
-            <input type="text" name="titre_quiz" required><br> <!-- Champ d'entrée pour le titre du quiz -->
+            <input type="text" name="titre_quiz" required><br> 
             <div id="questionsContainer">
                 
             </div>

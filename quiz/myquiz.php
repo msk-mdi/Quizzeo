@@ -41,7 +41,6 @@ function afficherQuizzes() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  rel="stylesheet" href="../quiz/myquiz.css"/>
     <title>Quiz disponibles</title>
-    <link rel="stylesheet" href="chemin_vers_le_fichier/quiz.css"> <!-- Assurez-vous d'avoir le bon chemin vers le fichier CSS -->
 </head>
 <body>
     <h1>Quiz disponibles</h1>
