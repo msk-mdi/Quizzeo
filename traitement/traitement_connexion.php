@@ -20,6 +20,7 @@ if (isset($_POST['id']) && isset($_POST['password']))
                         $_SESSION['rôle'] = $line[0];
                         $_SESSION['lastname'] = $line[1];
                         $_SESSION['firstname'] = $line[2];
+                        $_SESSION['password'] = $line[4];
                         $_SESSION['email'] = $line[6];
                         
                         if (($line[0] == 'User'))
