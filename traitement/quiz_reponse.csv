@@ -1,8 +1,5 @@
-School,"One Piece",Luffy,Roger,Zoro,Shanks,question1_2
-School,"One Piece",Nami,Robin,Carrot,Hancock,question2_1
-School,"One Piece",Luffy,Roger,Zoro,Shanks,question1_2
-School,"One Piece",Nami,Robin,Carrot,Hancock,question2_1
-School,Football,Halland,Mbappe,Messi,"Kevin De Bruyne ",question1_3
-School,Football,"Barca ",Réal,PSG,Bayern,question2_1
-School,Curtis,Lestouches,Satouche,Jemelatouche,Latouche,question1_4
-School,Curtis,Chanter,Danser,"Se moquer des handicapés ","Jouer a Insazuma Eleven",question2_3
+Quiz, Question, reponse, numéro de la bonne réponse
+"Test Maths ","2+2 = ?",4,2,4,0,question1_1
+"Test Maths ","0-3 = ?",3,0,-3,Impossible,question2_3
+Français,"Je mange équilibr() ?",er,ez,é,ée,3
+Français,"Je veux termin() ?",er,é,ez,ée,1
