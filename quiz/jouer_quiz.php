@@ -4,7 +4,6 @@ $score = 0;
 $quizSelectionne = $_GET['quiz'];
 // Ouvrir le fichier CSV contenant les données des quiz
 $quizDataFile = fopen("../traitement/quiz_data.csv", "r");
-
 // Vérifier si le fichier est ouvert avec succès
 if ($quizDataFile) {
     // Ignorer la première ligne (en-têtes)
@@ -14,8 +13,9 @@ if ($quizDataFile) {
     while (($quizData = fgetcsv($quizDataFile)) !== false) {
         // Assurez-vous que la ligne contient des données valides
         if (!empty ($quizData[1])) {
+            if ($quizSelectionne == $quizData[1]) {
             // Récupérer le titre du quiz depuis la deuxième colonne
-            $titreQuiz = $quizData[1];
+                $titreQuiz = $quizData[1];
         
                 // Afficher le titre du quiz
                 echo "<h2>Titre du quiz : $titreQuiz</h2>";
@@ -85,6 +85,7 @@ if ($quizDataFile) {
 
                 // Fermer le fichier CSV des questions
                 fclose($questionsFile);
+            }
             
         }
     }

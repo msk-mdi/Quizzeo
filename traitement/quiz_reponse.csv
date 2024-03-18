@@ -1,5 +1,5 @@
 Quiz, Question, reponse, numéro de la bonne réponse
-"Test Maths ","2+2 = ?",4,2,4,0,question1_1
-"Test Maths ","0-3 = ?",3,0,-3,Impossible,question2_3
+"Test Maths","2+2 = ?",4,2,4,0,question1_1
+"Test Maths","0-3 = ?",3,0,-3,Impossible,question2_3
 Français,"Je mange équilibr() ?",er,ez,é,ée,3
 Français,"Je veux termin() ?",er,é,ez,ée,1
