@@ -12,8 +12,10 @@ function afficherQuizzes() {
 
     // Parcourir le fichier et stocker les titres des quiz
     while (($row = fgetcsv($file)) !== false) {
+        if (isset($row['1'])) {
         $titreQuiz = $row[1]; // Récupérer le titre du quiz
         $quizTitres[] = $titreQuiz;
+        }
     }
 
     fclose($file);
@@ -24,8 +26,8 @@ function afficherQuizzes() {
     // Afficher les boutons play pour chaque titre de quiz
     foreach ($quizTitres as $titreQuiz) {
         echo "<div>";
-        echo "<h3>$titreQuiz</h3>";
-        echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button>Play</button></a>"; // Lien vers la page pour jouer au quiz
+        echo "<h3 class='quiz-title'><a href='jouer_quiz.php?quiz=$titreQuiz'>$titreQuiz</a></h3>";
+        echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button class='play-button'>Play</button></a>"; // Lien vers la page pour jouer au quiz
         echo "</div>";
     }
 }
@@ -38,7 +40,7 @@ function afficherQuizzes() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizzes disponibles</title>
-    <link rel="stylesheet" href="chemin_vers_le_fichier/quiz.css"> <!-- Assurez-vous d'avoir le bon chemin vers le fichier CSS -->
+    <link rel="stylesheet" href="./myquiz.css"> <!-- Assurez-vous d'avoir le bon chemin vers le fichier CSS -->
 </head>
 <body>
     <div class="quizzes-container">
