@@ -107,7 +107,7 @@ if ($quizDataFile) {
     <meta charset="UTF-8">
     <link  rel="stylesheet" href="../quiz/jouer_quiz.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 <body>
     
