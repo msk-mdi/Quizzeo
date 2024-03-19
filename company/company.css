@@ -6,3 +6,16 @@ h1 {
     text-align: center;
     margin-top: 50px;
 }
+
+h3 {
+    font-family: "Nunito", sans-serif; 
+    
+    
+}
+
+.text-content {
+    justify-content: center;
+    width: 1325px;
+    margin-left: 130px;
+    margin-top: 20px;
+  }
