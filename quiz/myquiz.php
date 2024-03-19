@@ -25,7 +25,7 @@ function afficherQuizzes() {
 
     // Afficher les boutons play pour chaque titre de quiz
     foreach ($quizTitres as $titreQuiz) {
-        echo "<div>";
+        echo "<div class='cardquiz'>";
         echo "<h3 class='quiz-title'><a href='jouer_quiz.php?quiz=$titreQuiz'>$titreQuiz</a></h3>";
         echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button class='play-button'>Play</button></a>"; // Lien vers la page pour jouer au quiz
         echo "</div>";

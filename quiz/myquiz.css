@@ -1,3 +1,17 @@
+.quizzes-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
 .quiz-title {
     font-weight: bold;
     margin-bottom: 10px;
