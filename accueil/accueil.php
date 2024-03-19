@@ -12,7 +12,7 @@ include('../accueil/header.php');
     <title>Accueil</title>
 </head>
 <body>
-    <h1 id="titre">BIENVENUE DANS QUIZZEO</h1>
+    <h1 id="titre">BIENVENUE SUR QUIZZEO</h1>
     <br></br>
     <br></br>
     <div class="text-content">

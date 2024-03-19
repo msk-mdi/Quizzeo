@@ -39,7 +39,7 @@ function afficherQuizzes() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizzes disponibles</title>
+    <title>Quiz disponibles</title>
     <link rel="stylesheet" href="../quiz/myquiz.css">
 </head>
 <body>
