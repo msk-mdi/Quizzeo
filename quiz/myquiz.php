@@ -1,56 +1,51 @@
 <?php
 include('../accueil/header.php');
 
-$home = "../accueil/accueil.php";
+// Fonction pour afficher les boutons play pour chaque quiz
+// Fonction pour afficher les boutons play pour chaque quiz, en évitant les doublons
+function afficherQuizzes() {
+    // Tableau pour stocker les titres des quiz déjà affichés
+    $quizTitres = array();
 
-if (isset($_SESSION['rôle'])) 
-{
-    if ($_SESSION['rôle'] == 'School' || $_SESSION['rôle'] == 'Company') 
-    {
-        if ($_SERVER["REQUEST_METHOD"] == "POST")
-        {
-            if(isset($_POST['question']) && isset($_POST['reponse_correcte']))
-            {
-                $question = $_POST['question'];
-        
-                $reponse_correcte = $_POST['reponse_correcte'];
-        
-                $choix_supplementaires = array();
-                foreach ($_POST as $key => $value)
-                {
-                    if (strpos($key, 'choix_n°') === 0)
-                    {
-                        $choix_supplementaires[] = $value;
-                    }
-                }
-
-                echo '<div class="card">';
-                echo '<div class="card-header">' . $question . '</div>';
-                echo '<div class="card-body">';
-                echo '<ul>';
-                
-                foreach ($choix_supplementaires as $choix)
-                {
-                    echo '<li>' . $choix . '</li>';
-                }
-                
-                echo '</ul>';
-                echo '<p>Réponse correcte : ' . $reponse_correcte . '</p>';
-                echo '</div>';
-                echo '</div>';
-            }
-            else
-            {
-                echo "Toutes les données requises ne sont pas disponibles.";
-            }
+    // Ouvrir le fichier contenant les titres des quiz
+    $file = fopen("../traitement/quiz_data.csv", "r");
+    fgetcsv($file);
+    // Parcourir le fichier et stocker les titres des quiz
+    while (($row = fgetcsv($file)) !== false) {
+        if (isset($row['1'])) {
+        $titreQuiz = $row[1]; // Récupérer le titre du quiz
+        $quizTitres[] = $titreQuiz;
         }
     }
-    else
-    {
-        header("location:".$home);
+
+    fclose($file);
+
+    // Supprimer les doublons de titres de quiz
+    $quizTitres = array_unique($quizTitres);
+
+    // Afficher les boutons play pour chaque titre de quiz
+    foreach ($quizTitres as $titreQuiz) {
+        echo "<div>";
+        echo "<h3 class='quiz-title'><a href='jouer_quiz.php?quiz=$titreQuiz'>$titreQuiz</a></h3>";
+        echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button class='play-button'>Play</button></a>"; // Lien vers la page pour jouer au quiz
+        echo "</div>";
     }
 }
-else
-{
-    header("location:".$home);
-}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzes disponibles</title>
+    <link rel="stylesheet" href="./myquiz.css"> <!-- Assurez-vous d'avoir le bon chemin vers le fichier CSS -->
+</head>
+<body>
+    <div class="quizzes-container">
+        <h1>Quizzes disponibles</h1>
+        <?php afficherQuizzes(); ?>
+    </div>
+</body>
+</html>

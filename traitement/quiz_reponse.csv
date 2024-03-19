@@ -1,0 +1,9 @@
+Quiz, Question, reponse, numéro de la bonne réponse
+"Test Maths","2+2 = ?",4,2,16,0,4
+"Test Maths","0-3 = ?",3,0,-3,Impossible,-3
+Français,"Je mange équilibr() ?",er,ez,é,ée,é
+Français,"Je veux termin() ?",er,é,ez,ée,er
+Géographie,"Capitale de la France ?",Marseille,Lyon,"Bordeaux ",Paris,Paris
+Géographie,"Quel endroit est culte au Havre ?",Cinema,Cathédrale,Port,Avenue,Port
+"Anglais ","Who is the president of France ?","Macaron ",Macon,"Macron ",Macronne,Macron
+"Anglais ","In which year we are ?",2022,2004,2023,2024,2024
