@@ -1,22 +1,27 @@
 <?php
-var_dump(($_POST));
-$score = 0;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $reponsesFile = fopen("../traitement/quiz_reponse.csv", "r");
-    if ($reponsesFile) {
-        fgetcsv($reponsesFile); // Ignorer la première ligne (en-têtes)
-        while (($reponsesData = fgetcsv($reponsesFile)) !== false) {
-            // Vérifier si la réponse de l'utilisateur est correcte
-            if (isset($_POST[$id_unique])) {
-                // La clé existe, vous pouvez y accéder en toute sécurité
-                $reponseUtilisateur = $_POST[$id_unique];
-                echo $reponseUtilisateur;
-            } else {
-                // La clé n'existe pas, faites quelque chose pour gérer cette situation
+include('../accueil/header.php');
+$file_name = '../traitement/quiz_resultat.csv';
+$file = fopen($file_name, 'r');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../quiz/score.css">
+    <title>Score</title>
+</head>
+<body>
+    <div class="score">
+        <h1>Félicitations !</h1>
+        <?php
+        while (($line = fgetcsv($file)) !== false) {
+            if (isset($line[1]) && $line[1] == $_SESSION['id']){
+                echo'<h2>Bravo '. $line[1] .' . Voici votre score est de : '.$line[3].'</h2>';
             }
-            
         }
-        fclose($reponsesFile);
-    }
-    echo "<p>Votre score total est : $score</p>";
-}
+        ?>
+    </div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 <?php
 include ('../accueil/header.php');
-$score = 0;
 $quizSelectionne = $_GET['quiz'];
 
 $quizDataFile = fopen("../traitement/quiz_data.csv", "r");
@@ -32,15 +31,14 @@ if ($quizDataFile) {
                                 if ($reponsesData[0] === $titreQuiz && $reponsesData[1] === $questionsData[1]) {
                                     $i += 1;
                                     echo "<form action='' method='post'>";
-                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[2]}'> {$reponsesData[2]}<br>";
-                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[3]}'> {$reponsesData[3]}<br>";
-                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[4]}'> {$reponsesData[4]}<br>";
-                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[5]}'> {$reponsesData[5]}<br>";
+                                    echo "<input type='radio' name='question" . $i . "' value='{$reponsesData[2]}'> {$reponsesData[2]}<br>";
+                                    echo "<input type='radio' name='question" . $i . "' value='{$reponsesData[3]}'> {$reponsesData[3]}<br>";
+                                    echo "<input type='radio' name='question" . $i . "' value='{$reponsesData[4]}'> {$reponsesData[4]}<br>";
+                                    echo "<input type='radio' name='question" . $i . "' value='{$reponsesData[5]}'> {$reponsesData[5]}<br>";
 
                                     $reponseSelectionnee = true;
                                 }
                             }
-
                             fclose($reponsesFile);
 
                             if (!$reponseSelectionnee) {
@@ -49,47 +47,63 @@ if ($quizDataFile) {
                         }
                     }
                 }
+                fclose($questionsFile);
                 echo "<input type='submit' value='Valider'>";
                 echo "</form>";
 
                 $score = 0;
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $reponsesFile = fopen("../traitement/quiz_reponse.csv", "r");
-                    if ($reponsesFile) {
-                        fgetcsv($reponsesFile); // Ignorer la première ligne (en-têtes)
-                        while (($reponsesData = fgetcsv($reponsesFile)) !== false) {
-                            // Vérifier si la réponse de l'utilisateur est correcte
-                            if (isset ($_POST['question1'])) {
-                                $reponseUtilisateur = $_POST['question1'];
-                                if ($reponseUtilisateur == $reponsesData[6]) {
-                                    $score ++;
-                                }
-                            } 
-                            if (isset ($_POST['question2'])) {
-                                $reponseUtilisateur = $_POST['question2'];
-                                if ($reponseUtilisateur == $reponsesData[6]) {
-                                    $score ++;
-                                }
-                            } 
-                            if (isset ($_POST['question3'])) {
-                                $reponseUtilisateur = $_POST['question3'];
-                                if ($reponseUtilisateur == $reponsesData[6]) {
-                                    $score ++;
-                                }
-                            }
-                            if (isset ($_POST['question4'])) {
-                                $reponseUtilisateur = $_POST['question4'];
-                                if ($reponseUtilisateur == $reponsesData[6]) {
-                                    $score ++;
-                                }
-                            } 
+                    $questionsFile = fopen("../traitement/quiz_question.csv", "r");
 
-                        }
-                        fclose($reponsesFile);
+                    if ($questionsFile) {
+                        fgetcsv($questionsFile);
+                        while (($questionsData = fgetcsv($questionsFile)) !== false) {
+
+                            if ($reponsesFile) {
+                                fgetcsv($reponsesFile);
+
+                                while (($reponsesData = fgetcsv($reponsesFile)) !== false) {
+                                    if (isset ($_POST['question1'])) {
+                                        $reponseUtilisateur = $_POST['question1'];
+                                        if ($reponseUtilisateur == $reponsesData[6]) {
+                                            $score++;
+                                        }
+                                    }
+                                    if (isset ($_POST['question2'])) {
+                                        $reponseUtilisateur = $_POST['question2'];
+                                        if ($reponseUtilisateur == $reponsesData[6]) {
+                                            $score++;
+                                        }
+                                    }
+                                    if (isset ($_POST['question3'])) {
+                                        $reponseUtilisateur = $_POST['question3'];
+                                        if ($reponseUtilisateur == $reponsesData[6]) {
+                                            $score++;
+                                        }
+                                    }
+                                    if (isset ($_POST['question4'])) {
+                                        $reponseUtilisateur = $_POST['question4'];
+                                        if ($reponseUtilisateur == $reponsesData[6]) {
+                                            $score++;
+                                        }
+                                    }
+
+                                }
+                                fclose($reponsesFile);
+                            }
+                            $resultatFile = fopen("../traitement/quiz_resultat.csv", "a");
+                            if ($line[1] == $_SESSION['id'] && $line[2] == $questionsData[0]) {
+                                echo "EHHHH non tu l'as déja fait mon grand";
+                            } else {
+                                fputcsv($resultatFile, [$_SESSION['rôle'], $_SESSION['id'], $questionsData[0], $score]);
+                                fclose($resultatFile);
+                                header('location: ../quiz/score.php');
+                            }
+                        }fclose($questionsFile);
                     }
-                    echo "<p>Votre score total est : $score</p>";
                 }
-                fclose($questionsFile);
+                
             }
         }
     }
