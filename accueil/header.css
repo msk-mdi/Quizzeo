@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-
+ 
+ 
 *{
     margin: 0;
 }
-
+ 
 header{
     display: flex;
     flex-direction: row;
@@ -12,7 +12,7 @@ header{
     padding: 20px;
     border-bottom: solid rgb(255, 218, 85);
 }
-
+ 
 nav{
     display: flex;
     gap: 20px;
@@ -20,15 +20,15 @@ nav{
 nav img{
     width: 300px;
 }
-
-
+ 
+ 
 nav ul {
     display: flex;
     justify-content: space-around;
     width: 400px;
     align-items: center;
 }
-
+ 
 nav ul li{
     list-style: none;
     font-family: "Nunito", sans-serif;
@@ -38,14 +38,24 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> quiz
 a {
     text-decoration: none;
     color: inherit;
 }
+<<<<<<< HEAD
 
 
 
+=======
+ 
+ 
+ 
+>>>>>>> quiz
 .home{
     color: rgb(125, 85, 255);
 }
@@ -69,7 +79,7 @@ a {
     background-color: rgb(255, 218, 85) ;
     color: white;
     border-radius: 5px;
-    
+   
 }
 .Admin{
     color: rgb(111, 111, 111);
@@ -77,8 +87,8 @@ a {
 .Admin:hover{
     color: black;
 }
-
-
+ 
+ 
 .login{
     display: flex;
     flex-direction: column;
@@ -86,7 +96,7 @@ a {
     justify-content: center;
     gap: 10px;
 }
-
+ 
 .login a h3{
     text-decoration: none;
     font-family: "Nunito", sans-serif;
