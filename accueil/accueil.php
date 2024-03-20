@@ -15,11 +15,11 @@ include('../accueil/header.php');
     <br></br>
     <br></br>
     <div className="text-content">
-    <h3>Quizzeo est votre destination ultime pour créer des quiz interactifs, divertissants et instructifs en quelques clics seulement. 
-    Que vous soyez un enseignant désireux de tester les connaissances de vos élèves, 
-    un responsable de formation cherchant à évaluer les compétences de votre équipe, 
-    ou simplement quelqu'un qui aime partager des défis ludiques en ligne, 
-    Quizzeo est là pour vous.</h3>
-</div>
+        <h3>Quizzeo est votre destination ultime pour créer des quiz interactifs, divertissants et instructifs en quelques clics seulement. 
+        Que vous soyez un enseignant désireux de tester les connaissances de vos élèves, 
+        un responsable de formation cherchant à évaluer les compétences de votre équipe, 
+        ou simplement quelqu'un qui aime partager des défis ludiques en ligne, 
+        Quizzeo est là pour vous.</h3>
+    </div>
 </body>
 </html>
