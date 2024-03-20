@@ -1,70 +1,86 @@
 <?php
-// Inclure le fichier d'en-tête
-include('../accueil/header.php');
 
-// Vérifier si le paramètre de l'URL 'quiz' est défini
-if (isset($_GET['quiz'])) {
-    // Récupérer le nom du quiz à partir de l'URL
-    $quizName = $_GET['quiz'];
+$quizSelectionne = $_GET['quiz'];
 
-    // Construire le chemin vers le fichier CSV
-    $quizFilePath = "../traitement/quiz_questions.csv";
+$quizDataFile = fopen("../traitement/quiz_data.csv", "r");
 
-    // Vérifier si le fichier du quiz existe
-    if (file_exists($quizFilePath)) {
-        // Lire le fichier CSV contenant toutes les questions
-        $quizData = array_map('str_getcsv', file($quizFilePath));
+if ($quizDataFile) {
+  
+    fgetcsv($quizDataFile);
 
-        // Initialiser un drapeau pour indiquer si le questionnaire a été trouvé
-        $quizFound = false;
+   
+    while (($quizData = fgetcsv($quizDataFile)) !== false) {
+      
+        if (!empty($quizData[1]) && $quizSelectionne == $quizData[1]) {
+          
+            $titreQuiz = $quizData[1];
 
-        // Parcourir chaque ligne du fichier CSV
-        foreach ($quizData as $question) {
-            // Si le premier élément de la ligne correspond au nom du questionnaire
-            if ($question[0] == $quizName) {
-                // Afficher le titre du quiz
-                echo "<h1>Jouer au quiz : $quizName</h1>";
+            
+            echo "<h2>Titre du quiz : $titreQuiz</h2>";
+            
+          
+            $questionsFile = fopen("../traitement/quiz_question.csv", "r");
 
-                // Afficher la question
-                echo "<p><strong>{$question[1]}</strong></p>";
+            
+            if ($questionsFile) {
+                
+                fgetcsv($questionsFile);
 
-                // Afficher les options de réponse
-                for ($i = 2; $i < count($question); $i++) {
-                    echo "<label><input type='radio' name='q{$question[1]}' value='{$question[$i]}'> {$question[$i]}</label><br>";
+                
+                while (($questionsData = fgetcsv($questionsFile)) !== false) {
+                    
+                    if ($questionsData[0] === $titreQuiz) {
+                        
+                        echo "<p>Question : {$questionsData[1]}</p>";
+                        
+                        
+                      
+                        $reponsesFile = fopen("../traitement/quiz_reponse.csv", "r");
+
+                        
+                        if ($reponsesFile) {
+                            
+                            fgetcsv($reponsesFile);
+
+                           
+                            echo "<form action='resultats_quiz.php' method='post'>";
+                            while (($reponsesData = fgetcsv($reponsesFile)) !== false) {
+                               
+                                if ($reponsesData[0] === $titreQuiz && $reponsesData[1] === $questionsData[1]) {
+                                    echo "<label><input type='radio' name='reponse{$questionsData[1]}' value='{$reponsesData[2]}'> {$reponsesData[2]}</label><br>";
+                                    echo "<label><input type='radio' name='reponse{$questionsData[1]}' value='{$reponsesData[3]}'> {$reponsesData[3]}</label><br>";
+                                    echo "<label><input type='radio' name='reponse{$questionsData[1]}' value='{$reponsesData[4]}'> {$reponsesData[4]}</label><br>";
+                                    echo "<label><input type='radio' name='reponse{$questionsData[1]}' value='{$reponsesData[5]}'> {$reponsesData[5]}</label><br>";
+                                }
+                            }
+                            echo "</form>";
+
+                           
+                            fclose($reponsesFile);
+                        }
+                    }
                 }
 
-                // Afficher le bouton de soumission du quiz
-                echo "<button onclick='submitQuiz(\"$quizName\")'>Soumettre le quiz</button>";
-
-                // Marquer le questionnaire comme trouvé
-                $quizFound = true;
-
-                // Arrêter la recherche une fois le questionnaire trouvé
-                break;
+               
+                fclose($questionsFile);
             }
         }
+    }
 
-        // Si le questionnaire n'a pas été trouvé, afficher un message d'erreur
-        if (!$quizFound) {
-            echo "<p>Le questionnaire spécifié n'existe pas.</p>";
-        } else {
-            // Si le fichier du quiz n'existe pas, afficher un message d'erreur
-            echo "<p>Le fichier de questions n'existe pas.</p>";
-        }
+  
+    fclose($quizDataFile);
+
    
-    } 
-}
-else {
-    // Si le paramètre 'quiz' n'est pas défini dans l'URL, afficher un message d'erreur
-    echo "<p>Aucun quiz sélectionné.</p>";
+    echo "<form action='resultats_quiz.php' method='post'>";
+    echo "<input type='submit' value='Valider le questionnaire'>";
+    echo "</form>";
+
+   
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+       
+    }
+} else {
+   
+    echo "Erreur : Impossible d'ouvrir le fichier des données des quiz.";
 }
 ?>
-
-<!-- Script JavaScript pour soumettre le quiz -->
-<script>
-function submitQuiz(quizName) {
-    // Rediriger l'utilisateur vers la page de résultats avec le nom du quiz dans l'URL
-    window.location.href = "resultats_quiz.php?quiz=" + quizName;
-}
-</script>
-
