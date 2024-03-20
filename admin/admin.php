@@ -4,7 +4,7 @@ if(isset($_SESSION['admin']))
 {
     if(isset($_POST['toggle']))
     {
-        $userId = $_POST['id'];
+        $user_id = $_POST['id'];
         $file_name = '../traitement/users.csv';
         $file_open = fopen($file_name, 'r+');
 
@@ -12,7 +12,7 @@ if(isset($_SESSION['admin']))
 
         while (($line = fgetcsv($file_open)) !== FALSE)
         {
-            if ($line[3] == $userId)
+            if ($line[3] == $user_id)
             {
                 $line[5] = ($line[5] == "1") ? "0" : "1";
             }
@@ -27,6 +27,30 @@ if(isset($_SESSION['admin']))
             fputcsv($file_open, $updatedLine);
         }
         fclose($file_open);
+
+        $user_quiz_id = $_POST['id_quiz'];
+        $file_name_quiz = '../traitement/quiz_data.csv';
+        $file_open_quiz = fopen($file_name_quiz, 'r+');
+
+        $updated_quiz_lines = [];
+
+        while (($line_quiz = fgetcsv($file_open_quiz)) !== FALSE)
+        {
+            if ($line_quiz[0] == $user_quiz_id)
+            {
+                $line_quiz[2] = ($line_quiz[2] == "1") ? "0" : "1";
+            }
+            $updated_quiz_lines[] = $line_quiz;
+        }
+
+        fclose($file_open_quiz);
+
+        $file_open_quiz = fopen($file_name_quiz, 'w');
+        foreach ($updated_quiz_lines as $updated_Line)
+        {
+            fputcsv($file_open_quiz, $updated_Line);
+        }
+        fclose($file_open_quiz);
 
         header("Location: ".$_SERVER['REQUEST_URI']);
         exit();
@@ -56,6 +80,7 @@ if(isset($_SESSION['admin']))
                 fclose($file_open);
                 ?>
             </ul>
+            
             <h2>Activate | Deactivate account</h2>
             <ul>
                 <?php
@@ -84,8 +109,35 @@ if(isset($_SESSION['admin']))
                 fclose($file_open);
                 ?>
             </ul>
+            
+            <h2>Activate | Deactivate quiz</h2>
+            <ul><?php
+            $file_name_quiz = '../traitement/quiz_data.csv';
+            $file_open_quiz = fopen($file_name_quiz,'a+');
+
+            while (($line_quiz = fgetcsv($file_open_quiz)) !== FALSE)
+            {
+                if ($line_quiz[2] == "1")
+                {
+                    echo "<li>$line_quiz[1]</li>";
+                    echo "<form method='POST'>";
+                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[1]'>";
+                    echo "<button type='submit' name='toggle'>Désactiver</button>";
+                    echo "</form>";
+                }
+                if ($line_quiz[2] == "0")
+                {
+                    echo "<li>$line_quiz[1]</li>";
+                    echo "<form method='POST'>";
+                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[1]'>";
+                    echo "<button type='submit' name='toggle'>Activer</button>";
+                    echo "</form>";
+                }
+            }
+            fclose($file_open_quiz);
+            ?>
+        </ul>
         </div>
     </body>
-    </html>
-    <?php
+    </html><?php
 }?>
