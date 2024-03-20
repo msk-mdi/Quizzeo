@@ -2,7 +2,6 @@
 
 session_start();
 
-$error;
 if (isset($_POST['type']) && isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['id']) && isset($_POST['password']) && isset($_POST['Email']))
 {
     $expression_mail = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/';
@@ -23,17 +22,19 @@ if (isset($_POST['type']) && isset($_POST['lastname']) && isset($_POST['firstnam
             fputcsv($file, [$_POST['type'], $_POST['lastname'], $_POST['firstname'], $_POST['id'], $password_hash, '1', $_POST['Email']]);
             fclose($file);
             $_SESSION['id'] = $_POST['id'];
-            header('location: ../accueil/accueil.php');
+            header('location: ../login/connection.php');
         }
         else
         {
-            $error = 'Le mots de passe a besoin de 8 caracteres minimum';
+            $_SESSION['error_password'] = 'Le mot de passe doit avoir au moins 8 caractères';
+            header('location: ../register.php');
+            exit();
         }
     }
     else
     {
-        $error = 'Votre email est incorrect';
+        $_SESSION['error_email'] = 'Votre email est incorrect';
+        header('location: ../register.php');
+        exit();
     }
 }
-
-echo $error;

@@ -2,9 +2,8 @@
 include('../accueil/header.php');
 if(empty($_SESSION['id'])){
     ?>
-        <!DOCTYPE html>
-        <html lang="en">
-
+    <!DOCTYPE html>
+    <html lang="en">
         <head>
             <meta charset="UTF-8">
             <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -12,25 +11,19 @@ if(empty($_SESSION['id'])){
             <title>Formulaire d'inscription</title>
             <link rel="stylesheet" href="./connection.css">
         </head>
-
         <body>
-        <script>
-        function verifierCaptcha()
-        {
-        var response = grecaptcha.getResponse();
-
-        // Vérifier si la réponse n'est pas vide
-        if (response.length == 0) {
-            // Le captcha n'a pas été fait
-            alert("Veuillez remplir le captcha.");
-            return false;
-        } else {
-        // Le captcha a été fait, continuer avec la soumission du formulaire
-            return true;
-        }
-    }
-</script>
-
+            <script>
+            function verifierCaptcha()
+            {
+                var response = grecaptcha.getResponse();
+                if (response.length == 0) {
+                    alert("Veuillez remplir le captcha.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            </script>
             <div class="container">
                 <h2>Connexion</h2>
                 <form action="../traitement/traitement_connexion.php" method="post" onsubmit="return verifierCaptcha()">
@@ -44,10 +37,8 @@ if(empty($_SESSION['id'])){
                 <p>You have not an account ? <a href="register.php"> Register</a></p>
             </div>
         </body>
-        </html>
+    </html>
 <?php
-}
-else{
-    header('location: ../accueil/index.php');
-}
-?>
+} else {
+    header('location: ../accueil/accueil.php');
+}?>
