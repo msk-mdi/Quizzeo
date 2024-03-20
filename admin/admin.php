@@ -121,7 +121,7 @@ if(isset($_SESSION['admin']))
                 {
                     echo "<li>$line_quiz[1]</li>";
                     echo "<form method='POST'>";
-                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[1]'>";
+                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[0]'>";
                     echo "<button type='submit' name='toggle'>Désactiver</button>";
                     echo "</form>";
                 }
@@ -129,7 +129,7 @@ if(isset($_SESSION['admin']))
                 {
                     echo "<li>$line_quiz[1]</li>";
                     echo "<form method='POST'>";
-                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[1]'>";
+                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[0]'>";
                     echo "<button type='submit' name='toggle'>Activer</button>";
                     echo "</form>";
                 }
