@@ -1,6 +1,19 @@
-<?php
+<?php 
+include ('../accueil/header.php');
+?>
 
-include('../accueil/header.php');
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link  rel="stylesheet" href="../quiz/jouer_quiz.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<div class="jeu_quiz">
+<?php
 $score = 0;
 $quizSelectionne = $_GET['quiz'];
 
@@ -18,11 +31,10 @@ if ($quizDataFile) {
 
             if ($questionsFile) {
                 fgetcsv($questionsFile);
-
+                $i = 0;
                 while (($questionsData = fgetcsv($questionsFile)) !== false) {
                     if ($questionsData[0] === $titreQuiz) {
                         echo "<p>Question : {$questionsData[1]}</p>";
-
                         $reponsesFile = fopen("../traitement/quiz_reponse.csv", "r");
 
                         if ($reponsesFile) {
@@ -32,12 +44,12 @@ if ($quizDataFile) {
 
                             while (($reponsesData = fgetcsv($reponsesFile)) !== false) {
                                 if ($reponsesData[0] === $titreQuiz && $reponsesData[1] === $questionsData[1]) {
-                                    echo "<form action='../quiz/score.php' method='post'>";
-
-                                    echo "<input  type='radio' name='{$reponsesData[1]}' value='{$reponsesData[2]}'> {$reponsesData[2]}<br>";
-                                    echo "<input  type='radio' name='{$reponsesData[1]}' value='{$reponsesData[3]}'> {$reponsesData[3]}<br>";
-                                    echo "<input  type='radio' name='{$reponsesData[1]}' value='{$reponsesData[4]}'> {$reponsesData[4]}<br>";
-                                    echo "<input  type='radio' name='{$reponsesData[1]}' value='{$reponsesData[5]}'> {$reponsesData[5]}<br>";
+                                    $i += 1;
+                                    echo "<form action='' method='post'>";
+                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[2]}'> {$reponsesData[2]}<br>";
+                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[3]}'> {$reponsesData[3]}<br>";
+                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[4]}'> {$reponsesData[4]}<br>";
+                                    echo "<input type='radio' name='question".$i."' value='{$reponsesData[5]}'> {$reponsesData[5]}<br>";
 
                                     $reponseSelectionnee = true;
                                 }
@@ -54,25 +66,53 @@ if ($quizDataFile) {
                 echo "<input type='submit' value='Valider'>";
                 echo "</form>";
 
+                $score = 0;
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $reponsesFile = fopen("../traitement/quiz_reponse.csv", "r");
+                    if ($reponsesFile) {
+                        fgetcsv($reponsesFile); // Ignorer la première ligne (en-têtes)
+                        while (($reponsesData = fgetcsv($reponsesFile)) !== false) {
+                            // Vérifier si la réponse de l'utilisateur est correcte
+                            if (isset ($_POST['question1'])) {
+                                $reponseUtilisateur = $_POST['question1'];
+                                if ($reponseUtilisateur == $reponsesData[6]) {
+                                    $score ++;
+                                }
+                            } 
+                            if (isset ($_POST['question2'])) {
+                                $reponseUtilisateur = $_POST['question2'];
+                                if ($reponseUtilisateur == $reponsesData[6]) {
+                                    $score ++;
+                                }
+                            } 
+                            if (isset ($_POST['question3'])) {
+                                $reponseUtilisateur = $_POST['question3'];
+                                if ($reponseUtilisateur == $reponsesData[6]) {
+                                    $score ++;
+                                }
+                            }
+                            if (isset ($_POST['question4'])) {
+                                $reponseUtilisateur = $_POST['question4'];
+                                if ($reponseUtilisateur == $reponsesData[6]) {
+                                    $score ++;
+                                }
+                            } 
+
+                        }
+                        fclose($reponsesFile);
+                    }
+                    echo "<p>Votre score total est : $score</p>";
+                }
                 fclose($questionsFile);
             }
         }
     }
     fclose($quizDataFile);
-  
-    
+
+
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link  rel="stylesheet" href="../quiz/jouer_quiz.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    
+</div>
 </body>
 </html>
+
