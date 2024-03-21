@@ -37,25 +37,15 @@ nav ul li{
 }
 nav ul li a{
     text-decoration: none;
+    color: inherit;
 }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> quiz
 a {
     text-decoration: none;
     color: inherit;
 }
-<<<<<<< HEAD
-
-
-
-=======
  
- 
- 
->>>>>>> quiz
+
 .home{
     color: rgb(125, 85, 255);
 }
