@@ -1,8 +1,9 @@
-Rôle,Quiz,1
-Company,"Test Maths",1
-School,Français,1
-School,Géographie,1
-School,"Anglais",1
-Company,"Quiz Compta ?",1
-School,"Test Histoire",1
-Company,Poste,1
+Rôle,Quiz,1,0
+Company,"Test Maths",1,1
+School,Français,1,2
+School,Géographie,1,3
+School,Anglais,1,4
+Company,"Quiz Compta ?",1,5
+School,"Test Histoire",1,6
+Company,Poste,1,7
+School,GOAT,1,65fc047c4e251

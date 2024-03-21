@@ -7,9 +7,9 @@ function afficherQuizzes() {
     $file = fopen("../traitement/quiz_data.csv", "r");
     fgetcsv($file);
     while (($row = fgetcsv($file)) !== false) {
-        if (isset($row['1'])&& $row[0] == 'School') {
-        $titreQuiz = $row[1];
-        $quizTitres[] = $titreQuiz;
+        if (isset($row['1'])&& $row[0] == 'School' && $row[2] == '1') {
+            $titreQuiz = $row[1];
+            $quizTitres[] = $titreQuiz;
         }
     }
 
@@ -33,7 +33,7 @@ if ($_SESSION['rôle'] == 'Company'){
         $file = fopen("../traitement/quiz_data.csv", "r");
         fgetcsv($file);
         while (($row = fgetcsv($file)) !== false) {
-            if (isset($row['1'] )&& $row[0] == 'Company') {
+            if (isset($row['1'] )&& $row[0] == 'Company' && $row[2] == '1') {
             $titreQuiz = $row[1];
             $quizTitres[] = $titreQuiz;
             }
@@ -59,7 +59,7 @@ if ($_SESSION['rôle'] == 'Company'){
             $file = fopen("../traitement/quiz_data.csv", "r");
             fgetcsv($file);
             while (($row = fgetcsv($file)) !== false) {
-                if (isset($row['1'] )) {
+                if (isset($row['1']) && $row[2] == '1') {
                 $titreQuiz = $row[1];
                 $quizTitres[] = $titreQuiz;
                 }

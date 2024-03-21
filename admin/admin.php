@@ -28,7 +28,7 @@ if(isset($_SESSION['admin']))
         }
         fclose($file_open);
 
-        $user_quiz_id = $_POST['id_quiz'];
+        $quiz_id = $_POST['id_quiz'];
         $file_name_quiz = '../traitement/quiz_data.csv';
         $file_open_quiz = fopen($file_name_quiz, 'r+');
 
@@ -36,7 +36,7 @@ if(isset($_SESSION['admin']))
 
         while (($line_quiz = fgetcsv($file_open_quiz)) !== FALSE)
         {
-            if ($line_quiz[0] == $user_quiz_id)
+            if ($line_quiz[3] == $quiz_id)
             {
                 $line_quiz[2] = ($line_quiz[2] == "1") ? "0" : "1";
             }
@@ -121,7 +121,7 @@ if(isset($_SESSION['admin']))
                 {
                     echo "<li>$line_quiz[1]</li>";
                     echo "<form method='POST'>";
-                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[0]'>";
+                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[3]'>";
                     echo "<button type='submit' name='toggle'>Désactiver</button>";
                     echo "</form>";
                 }
@@ -129,7 +129,7 @@ if(isset($_SESSION['admin']))
                 {
                     echo "<li>$line_quiz[1]</li>";
                     echo "<form method='POST'>";
-                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[0]'>";
+                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[3]'>";
                     echo "<button type='submit' name='toggle'>Activer</button>";
                     echo "</form>";
                 }
