@@ -36,7 +36,10 @@ include('../accueil/header.php');
                     '<label>Choix n°4:</label><br>' +
                     '<input type="text" name="question' + nombreDeQuestions + '_4" required><br>' +
                     '<label>Réponse correcte:</label><br>' +
-                    '<input type="text" name="reponse_correcte' + nombreDeQuestions + '" required><br>';
+                    '<input type="text" name="reponse_correcte' + nombreDeQuestions + '" required><br>' +
+                    '<label>Barème:</label><br>' +
+                    '<input type="number" name="bareme' + nombreDeQuestions + '" required><br>';
+
                 if (nombreDeQuestions > 1) {
                     var supprimerButton = document.createElement('button');
                     supprimerButton.textContent = "Supprimer la question précédente";

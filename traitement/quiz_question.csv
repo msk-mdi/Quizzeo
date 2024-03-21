@@ -1,10 +1,14 @@
 Quiz, Question 
-"Test Maths","2+2 = ?"
-"Test Maths","0-3 = ?"
-Français,"Je mange équilibr() ?"
-Français,"Je veux termin() ?"
-Géographie,"Capitale de la France ?"
-Géographie,"Quel endroit est culte au Havre ?"
-"Anglais ","Who is the president of France ?"
-"Anglais ","In which year we are ?"
-
+"Test Maths","2+2 = ?",3
+"Test Maths","0-3 = ?",8
+Français,"Je mange équilibr() ?",4
+Français,"Je veux termin() ?",5
+Géographie,"Capitale de la France ?",5
+Géographie,"Quel endroit est culte au Havre ?",4
+"Anglais","Who is the president of France ?",5
+"Anglais","In which year we are ?",5
+"Quiz Compta ?","Chiffre d'affaire 2023 ?",6
+"Quiz Compta ?","Qui est le PDG ?",5
+"Test Histoire","Découverte Amérique :",5
+"Test Histoire","Fin WWI :",3
+Poste,"Qui est la RH ?",5

@@ -1,5 +1,17 @@
-<?php
+ <?php
 include ('../accueil/header.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../quiz/jouer_quiz.css">
+    <title>Score</title>
+</head>
+<body>
+<div class="jeu_quiz">
+<?php
 $quizSelectionne = $_GET['quiz'];
 
 $quizDataFile = fopen("../traitement/quiz_data.csv", "r");
@@ -35,6 +47,8 @@ if ($quizDataFile) {
                                     echo "<input type='radio' name='question" . $i . "' value='{$reponsesData[3]}'> {$reponsesData[3]}<br>";
                                     echo "<input type='radio' name='question" . $i . "' value='{$reponsesData[4]}'> {$reponsesData[4]}<br>";
                                     echo "<input type='radio' name='question" . $i . "' value='{$reponsesData[5]}'> {$reponsesData[5]}<br>";
+                                    echo "<input type='hidden' name='bareme" . $i . "' value='{$questionsData[2]}'><br>";
+
 
                                     $reponseSelectionnee = true;
                                 }
@@ -52,6 +66,7 @@ if ($quizDataFile) {
                 echo "</form>";
 
                 $score = 0;
+                $note = 0;
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $reponsesFile = fopen("../traitement/quiz_reponse.csv", "r");
                     $questionsFile = fopen("../traitement/quiz_question.csv", "r");
@@ -65,27 +80,35 @@ if ($quizDataFile) {
 
                                 while (($reponsesData = fgetcsv($reponsesFile)) !== false) {
                                     if (isset ($_POST['question1'])) {
+                                        $bareme = $_POST['bareme1'];
+                                        $note += intval($bareme);
                                         $reponseUtilisateur = $_POST['question1'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($bareme);
                                         }
                                     }
                                     if (isset ($_POST['question2'])) {
+                                        $bareme = $_POST['bareme2'];
+                                        $note += intval($bareme);
                                         $reponseUtilisateur = $_POST['question2'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($bareme);
                                         }
                                     }
                                     if (isset ($_POST['question3'])) {
+                                        $bareme = $_POST['bareme3'];
+                                        $note += intval($bareme);
                                         $reponseUtilisateur = $_POST['question3'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($bareme);
                                         }
                                     }
                                     if (isset ($_POST['question4'])) {
+                                        $bareme = $_POST['bareme4'];
+                                        $note += intval($bareme);
                                         $reponseUtilisateur = $_POST['question4'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($bareme);
                                         }
                                     }
 
@@ -93,17 +116,17 @@ if ($quizDataFile) {
                                 fclose($reponsesFile);
                             }
                             $resultatFile = fopen("../traitement/quiz_resultat.csv", "a");
-                            if ($line[1] == $_SESSION['id'] && $line[2] == $questionsData[0]) {
+                            if ($line[1] == $_SESSION['id'] && $line[2] == $questionsData[1]) {
                                 echo "EHHHH non tu l'as déja fait mon grand";
                             } else {
-                                fputcsv($resultatFile, [$_SESSION['rôle'], $_SESSION['id'], $questionsData[0], $score]);
+                                fputcsv($resultatFile, [$_SESSION['rôle'], $_SESSION['id'], $titreQuiz, $score, $note]);
                                 fclose($resultatFile);
                                 header('location: ../quiz/score.php');
                             }
                         }fclose($questionsFile);
                     }
                 }
-                
+
             }
         }
     }
@@ -111,3 +134,11 @@ if ($quizDataFile) {
 
 
 }
+?>
+</div>
+</body>
+</html>
+  
+
+
+
