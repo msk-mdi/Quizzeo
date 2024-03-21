@@ -1,6 +1,4 @@
- <?php
-include ('../accueil/header.php');
-?>
+<?php include ('../accueil/header.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

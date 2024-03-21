@@ -54,7 +54,8 @@ if ($_SESSION['rôle'] == 'Company'){
     }
 
     if ($_SESSION['rôle'] == 'User'){
-        function afficherQuizzes() {
+        function afficherQuizzes()
+        {
             $quizTitres = array();
             $file = fopen("../traitement/quiz_data.csv", "r");
             fgetcsv($file);
