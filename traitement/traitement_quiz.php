@@ -14,6 +14,7 @@ if (isset ($_POST['titre_quiz'])) {
             $choix3 = $_POST['question' . $i . '_3'];
             $choix4 = $_POST['question' . $i . '_4'];
             $reponseCorrecte = $_POST['reponse_correcte' . $i];
+            $bareme =  $_POST['bareme' . $i];
 
             // Ajouter les données de la question à un tableau
             $questionsData[] = array(
@@ -22,7 +23,8 @@ if (isset ($_POST['titre_quiz'])) {
                 'choix2' => $choix2,
                 'choix3' => $choix3,
                 'choix4' => $choix4,
-                'reponseCorrecte' => $reponseCorrecte
+                'reponseCorrecte' => $reponseCorrecte,
+                'bareme' => $bareme
             );
         }
     }
@@ -39,7 +41,7 @@ if (isset ($_POST['titre_quiz'])) {
     $question = fopen("quiz_question.csv", "a");
     // Écrire les données de chaque question dans le fichier CSV
     foreach ($questionsData as $questionData) {
-        $row = array($titreQuiz, $questionData['question']);
+        $row = array($titreQuiz, $questionData['question'], $questionData['bareme']);
         fputcsv($question, $row);
     }
 
@@ -53,7 +55,8 @@ if (isset ($_POST['titre_quiz'])) {
             $questionData['choix2'],
             $questionData['choix3'],
             $questionData['choix4'],
-            $questionData['reponseCorrecte'] // Stockez l'indice de la bonne réponse
+            $questionData['reponseCorrecte'],
+             // Stockez l'indice de la bonne réponse
         );
         fputcsv($reponse, $row);
     }

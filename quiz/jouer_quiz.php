@@ -1,5 +1,17 @@
-<?php
+ <?php
 include ('../accueil/header.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../quiz/jouer_quiz.css">
+    <title>Score</title>
+</head>
+<body>
+<div class="jeu_quiz">
+<?php
 $quizSelectionne = $_GET['quiz'];
 
 $quizDataFile = fopen("../traitement/quiz_data.csv", "r");
@@ -67,25 +79,25 @@ if ($quizDataFile) {
                                     if (isset ($_POST['question1'])) {
                                         $reponseUtilisateur = $_POST['question1'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($reponsesData[7]);
                                         }
                                     }
                                     if (isset ($_POST['question2'])) {
                                         $reponseUtilisateur = $_POST['question2'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($reponsesData[7]);
                                         }
                                     }
                                     if (isset ($_POST['question3'])) {
                                         $reponseUtilisateur = $_POST['question3'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($reponsesData[7]);
                                         }
                                     }
                                     if (isset ($_POST['question4'])) {
                                         $reponseUtilisateur = $_POST['question4'];
                                         if ($reponseUtilisateur == $reponsesData[6]) {
-                                            $score++;
+                                            $score += intval($reponsesData[7]);
                                         }
                                     }
 
@@ -96,14 +108,14 @@ if ($quizDataFile) {
                             if ($line[1] == $_SESSION['id'] && $line[2] == $questionsData[0]) {
                                 echo "EHHHH non tu l'as déja fait mon grand";
                             } else {
-                                fputcsv($resultatFile, [$_SESSION['rôle'], $_SESSION['id'], $questionsData[0], $score]);
+                                fputcsv($resultatFile, [$_SESSION['rôle'], $_SESSION['id'], $titreQuiz, $score]);
                                 fclose($resultatFile);
                                 header('location: ../quiz/score.php');
                             }
                         }fclose($questionsFile);
                     }
                 }
-                
+
             }
         }
     }
@@ -111,3 +123,11 @@ if ($quizDataFile) {
 
 
 }
+?>
+</div>
+</body>
+</html>
+  
+
+
+

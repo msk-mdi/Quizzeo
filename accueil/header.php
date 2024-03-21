@@ -24,6 +24,11 @@ session_start();
                 <?php
                 if (isset ($_SESSION["rôle"]))
                 {
+                    if ($_SESSION["rôle"] == 'User')
+                    {?>
+                        <li class='myquizz'><a href="../quiz/myquiz.php">Play</a></li>
+                        <?php
+                    }
                     if ($_SESSION["rôle"] == 'School' || $_SESSION["rôle"] == 'Company')
                     {?>
                         <li class='myquizz'><a href="../quiz/myquiz.php">My Quizz</a></li>
@@ -33,10 +38,20 @@ session_start();
                 }
                 if (isset($_SESSION["rôle"]))
                 {
+
                     if ($_SESSION['rôle'] == 'Admin')
                     {?>
                         <li class='Admin'><a class='Admin' href="../admin/admin.php">Admin</a></li><?php
                     }
+                    if ($_SESSION['rôle'] == 'School')
+                    {?>
+                        <li class='Admin'><a class='Admin' href="../school/school.php">School</a></li><?php
+                    }
+                    if ($_SESSION['rôle'] == 'Company')
+                    {?>
+                        <li class='Admin'><a class='Admin' href="../company/company.php">Company</a></li><?php
+                    }
+
                 }?>
             </ul>
         </nav>
