@@ -29,12 +29,13 @@ if(empty($_SESSION['id'])){
                 <form action="../traitement/traitement_connexion.php" method="post" onsubmit="return verifierCaptcha()">
                     <label for="id">Identifiant :</label>
                     <input type="text" id="id" name="id" required>
-                    <label for="password">Mot de passe :</label>
+                    <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                     <div class="g-recaptcha" data-sitekey="6Le3opgpAAAAAPqnC4hdvBDDCnKvpcMSa9siPbPX"></div>
                     <input type="submit" value="Se connectez">
                 </form>
-                <p>You have not an account ? <a href="register.php"> Register</a></p>
+                <p>You don't have an account ? </p>
+                <a href="register.php">Register</a>
             </div>
         </body>
     </html>

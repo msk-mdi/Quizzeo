@@ -12,7 +12,11 @@ if(isset($_SESSION['admin']))
 
         while (($line = fgetcsv($file_open)) !== FALSE)
         {
-            if ($line[3] == $user_id)
+            if ($line[0] == 'Admin')
+            {
+                $line[5] = '1';
+            }
+            else if ($line[3] == $user_id)
             {
                 $line[5] = ($line[5] == "1") ? "0" : "1";
             }
@@ -91,18 +95,28 @@ if(isset($_SESSION['admin']))
                 {
                     if ($line[5] == "1")
                     {
-                        echo "<li>$line[3]</li>";
-                        echo "<form method='POST'>";
-                        echo "<input type='hidden' name='id' value='$line[3]'>";
-                        echo "<button type='submit' name='toggle'>Désactiver</button>";
-                        echo "</form>";
+                        if ($line[0] == 'Admin')
+                        {
+                            echo "<li>$line[3]</li>";
+                            echo "<form method='POST'>";
+                            echo "<input type='hidden' name='id' value='$line[3]'>";
+                            echo "<button type='submit' name='toggle'>Admin</button>";
+                            echo "</form>";
+                        } else
+                        {
+                            echo "<li>$line[3]</li>";
+                            echo "<form method='POST'>";
+                            echo "<input type='hidden' name='id' value='$line[3]'>";
+                            echo "<button type='submit' name='toggle'>Deactivate</button>";
+                            echo "</form>";
+                        }
                     }
-                    if ($line[5] == "0")
+                    else if ($line[5] == "0")
                     {
                         echo "<li>$line[3]</li>";
                         echo "<form method='POST'>";
                         echo "<input type='hidden' name='id' value='$line[3]'>";
-                        echo "<button type='submit' name='toggle'>Activer</button>";
+                        echo "<button type='submit' name='toggle'>Activate</button>";
                         echo "</form>";
                     }
                 }
@@ -119,18 +133,24 @@ if(isset($_SESSION['admin']))
             {
                 if ($line_quiz[2] == "1")
                 {
-                    echo "<li>$line_quiz[1]</li>";
-                    echo "<form method='POST'>";
-                    echo "<input type='hidden' name='id_quiz' value='$line_quiz[3]'>";
-                    echo "<button type='submit' name='toggle'>Désactiver</button>";
-                    echo "</form>";
+                    if ($line_quiz[1] == "Quiz")
+                    {
+                        echo '';
+
+                    } else {
+                        echo "<li>$line_quiz[1]</li>";
+                        echo "<form method='POST'>";
+                        echo "<input type='hidden' name='id_quiz' value='$line_quiz[3]'>";
+                        echo "<button type='submit' name='toggle'>Deactivate</button>";
+                        echo "</form>";
+                    }
                 }
                 if ($line_quiz[2] == "0")
                 {
                     echo "<li>$line_quiz[1]</li>";
                     echo "<form method='POST'>";
                     echo "<input type='hidden' name='id_quiz' value='$line_quiz[3]'>";
-                    echo "<button type='submit' name='toggle'>Activer</button>";
+                    echo "<button type='submit' name='toggle'>Activate</button>";
                     echo "</form>";
                 }
             }
