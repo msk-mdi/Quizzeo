@@ -31,7 +31,7 @@ if(empty($_SESSION['id'])){
     }
 </script>
 
-            <div class="container">
+            <div class="container" class="card">
                 <h2>Connexion</h2>
                 <form action="../traitement/traitement_connexion.php" method="post" onsubmit="return verifierCaptcha()">
                     <label for="id">Identifiant :</label>

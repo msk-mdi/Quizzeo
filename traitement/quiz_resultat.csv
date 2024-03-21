@@ -1,8 +1,11 @@
-School,school,"Test Maths",1
-Company,company,"Test Maths",0
-Company,company,"Test Maths",2
-Company,company,"Test Maths",2
-Company,company,"Test Maths",2
-Company,company,"Test Maths",2
-Company,company,"Test Maths",2
-Company,company,"Test Maths",2
+School,school,Français,2
+School,school,Géographie,1
+Company,company,"Quiz Compta ?",2
+School,school,"Quiz Compta ?",2
+
+School,school,"Test Histoire",0
+School,school,"Test Histoire",0
+School,school,"Test Histoire",0
+Company,company,Poste,0
+,,"Test Maths",0
+,,"Test Maths",0

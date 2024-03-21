@@ -22,3 +22,8 @@ input{
     height: 30px;
     border-radius: 10px;
 }
+
+.card {
+    border: solid black;
+    border-radius: 10px;
+}

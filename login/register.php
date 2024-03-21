@@ -28,7 +28,7 @@ if(empty($_SESSION['identifiant'])){?>
                 }
             }
 </script>
-                <div class="container">
+                <div class="container" class="card"
                     <h2>Inscription</h2>
                     <form action="../traitement/traitement_register.php" method="post" onsubmit="return verifierCaptcha()">
                         <label for="type">Type of user :</label>
