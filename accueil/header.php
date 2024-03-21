@@ -25,24 +25,33 @@ $user_id = isset($_SESSION['id']);
                 <?php
                 if (isset ($_SESSION["rôle"]))
                 {
+                    if ($_SESSION["rôle"] == 'User')
+                    {?>
+                        <li class='myquizz'><a href="../quiz/myquiz.php">Play</a></li>
+                        <?php
+                    }
                     if ($_SESSION["rôle"] == 'School' || $_SESSION["rôle"] == 'Company')
                     {?>
                         <li class='myquizz'><a href="../quiz/myquiz.php">My Quizz</a></li>
                         <li class='create'><a class="quiz" href="../quiz/quiz.php">Create</a></li><?php
                     }
-                    else if ($_SESSION['rôle'] == 'User')
-                    {?>
-                        <li class='dashboard'><a href="../accueil/accueil.php">Dashboard</a></li>
-                        <li class='My_account'><a href="../user/user.php">My account (<?php echo $user_id?>)</a></li><?php
-                    }
-                    else if ($_SESSION['rôle'] == 'Admin')
+                }
+                if (isset($_SESSION["rôle"]))
+                {
+
+                    if ($_SESSION['rôle'] == 'Admin')
                     {?>
                         <li class='Admin'><a class='Admin' href="../admin/admin.php">Admin</a></li><?php
                     }
-                    else
-                    {
-                        echo "rôle inexistant";
+                    if ($_SESSION['rôle'] == 'School')
+                    {?>
+                        <li class='Admin'><a class='Admin' href="../school/school.php">School</a></li><?php
                     }
+                    if ($_SESSION['rôle'] == 'Company')
+                    {?>
+                        <li class='Admin'><a class='Admin' href="../company/company.php">Company</a></li><?php
+                    }
+
                 }?>
             </ul>
         </nav>
