@@ -7,6 +7,13 @@
     align-items: center;
     justify-content: center;
     font-family: "Nunito", sans-serif;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.userpage h2{
+    font-size: 30px;
+
 }
 .current li{
     list-style: none;
@@ -15,4 +22,7 @@
 .update{
     display: flex;
     flex-direction: column;
+}
+.update input{
+    border-radius: 5px;
 }

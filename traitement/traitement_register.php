@@ -9,6 +9,7 @@ if (isset($_POST['type']) && isset($_POST['lastname']) && isset($_POST['firstnam
     $email = $_POST['Email'];
     $password = $_POST['password'];
     $_SESSION['password'] = $password;
+    $_SESSION['rôle'] = $_POST['type'];
 
     if (preg_match($expression_mail, $email))
     {
