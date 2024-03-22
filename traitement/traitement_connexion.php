@@ -2,18 +2,27 @@
 session_start();
 $error;
 
-if (isset($_POST['id']) && isset($_POST['password'])) {
+if (isset($_POST['id']) && isset($_POST['password']))
+{
     $file_name = 'users.csv';
     $file = fopen($file_name, 'r');
 
-    if ($file) {
-        while (($line = fgetcsv($file)) !== false) {
-            if ($line[3] === $_POST['id']) {
+    if ($file)
+    {
+        while (($line = fgetcsv($file)) == TRUE)
+        {
+            if ($line[3] === $_POST['id'])
+            {
                 if (password_verify($_POST['password'], $line[4]))
                 {
                     if ($line[5] == '1')
                     {
                         $_SESSION['rôle'] = $line[0];
+                        $_SESSION['lastname'] = $line[1];
+                        $_SESSION['firstname'] = $line[2];
+                        $_SESSION['password'] = $line[4];
+                        $_SESSION['email'] = $line[6];
+                        
                         if (($line[0] == 'User'))
                         {
                             $_SESSION['id'] = $_POST['id'];
@@ -36,7 +45,6 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                             exit();
                         }
 
-                        // admin page
                         if ($line[0] == 'Admin') {
                             $_SESSION['id'] = $_POST['id'];
                             $_SESSION['admin'] = true;
@@ -45,9 +53,9 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
                             exit();
                         }
                     }
-                    else 
+                    else
                     {
-                        $error = "L'utilisateur a été desactiver";
+                        $error = "L'utilisateur a été désactivé.";
                     }
                 }
                 else
@@ -68,25 +76,15 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
     }
     echo $error;
 
-    if(isset($_POST['g-recaptcha-response'])) {
-        // Vérifiez la réponse du captcha avec Google
+    if(isset($_POST['g-recaptcha-response']))
+    {
         $captchaResponse = $_POST['g-recaptcha-response'];
         $url = 'https://www.google.com/recaptcha/api/siteverify';
-        $data = array(
-            'secret' => $secretKey,
-            'response' => $captchaResponse
-        );
+        $data = array('secret' => $secretKey,'response' => $captchaResponse);
     
-        $options = array(
-            'http' => array (
-                'method' => 'POST',
-                'content' => http_build_query($data)
-            )
-        );
-    
+        $options = array('http' => array ('method' => 'POST','content' => http_build_query($data)));
         $context = stream_context_create($options);
         $response = file_get_contents($url, false, $context);
         $responseKeys = json_decode($response, true);
     }
-
 }

@@ -1,17 +1,28 @@
 <?php
 include('../accueil/header.php');
-if(empty($_SESSION['identifiant'])){?>
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <script src="https://www.google.com/recaptcha/api.js"></script>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title></title>
-                <link rel="stylesheet" href="./register.css">
-            </head>
+if(empty($_SESSION['id']))
+{
+    if(isset($_SESSION['error_password']))
+    {
+        echo '<script>alert("' . $_SESSION['error_password'] . '");</script>';
+        unset($_SESSION['error_password']); // Clear the error message once displayed
+    }
 
-            <body>
+    if(isset($_SESSION['error_email']))
+    {
+        echo '<script>alert("' . $_SESSION['error_email'] . '");</script>';
+        unset($_SESSION['error_email']); // Clear the error message once displayed
+    }?>
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Register</title>
+            <link rel="stylesheet" href="./register.css">
+        </head>
+        <body>
             <script>
             function verifierCaptcha() {
                 // Récupérer la réponse du captcha
@@ -51,8 +62,6 @@ if(empty($_SESSION['identifiant'])){?>
 
             </html>
 <?php
-}
-else{
-    header('location: ../accueil/index.php');
-}
-?>
+} else {
+    header('location: ../accueil/accueil.php');
+}?>

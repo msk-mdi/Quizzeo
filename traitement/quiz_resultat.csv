@@ -1,6 +1,10 @@
-User,lej,"Test Maths",11,143
-Company,company,"Test Maths",3,143
-Company,company,"Test Maths",11,143
-School,school,Français,4,117
-Company,company,"Test Maths",11,143
-School,school,Français,9
+School,school,Français,2
+School,school,Géographie,1
+Company,company,"Quiz Compta ?",2
+School,school,"Quiz Compta ?",2
+
+School,school,"Test Histoire",0
+School,school,"Test Histoire",0
+School,school,"Test Histoire",0
+Company,company,Poste,0
+School,school,GOAT,0
