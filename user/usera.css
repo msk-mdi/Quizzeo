@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+.userpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Nunito", sans-serif;
+}
+.current li{
+    list-style: none;
+    text-align: center;
+}
+.update{
+    display: flex;
+    flex-direction: column;
+}

@@ -21,6 +21,7 @@ function afficherQuizzes() {
     foreach ($quizTitres as $titreQuiz) {
         echo "<div class='cardquiz'>";
         echo "<h3 class='quiz-title'><a href='jouer_quiz.php?quiz=$titreQuiz'>$titreQuiz</a></h3>";
+        echo "<img id='imagequiz' src='../accueil/assets/Imagequizz.pdf' alt='logo'/> ";
         echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button class='play-button'>Play</button></a>";
         echo "</div>";
     }
@@ -47,6 +48,7 @@ if ($_SESSION['rôle'] == 'Company'){
         foreach ($quizTitres as $titreQuiz) {
             echo "<div class='cardquiz'>";
             echo "<h3 class='quiz-title'><a href='jouer_quiz.php?quiz=$titreQuiz'>$titreQuiz</a></h3>";
+            echo "<img id='imagequiz' src='../accueil/assets/Imagequizz.pdf' alt='logo'/> ";
             echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button class='play-button'>Play</button></a>";
             echo "</div>";
         }
@@ -74,6 +76,7 @@ if ($_SESSION['rôle'] == 'Company'){
             foreach ($quizTitres as $titreQuiz) {
                 echo "<div class='cardquiz'>";
                 echo "<h3 class='quiz-title'><a href='jouer_quiz.php?quiz=$titreQuiz'>$titreQuiz</a></h3>";
+                echo "<img id='imagequiz' src='../accueil/assets/Imagequizz.pdf' alt='logo'/> ";
                 echo "<a href='jouer_quiz.php?quiz=$titreQuiz'><button class='play-button'>Play</button></a>";
                 echo "</div>";
             }
@@ -88,7 +91,7 @@ if ($_SESSION['rôle'] == 'Company'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizzes disponibles</title>
-    <link rel="stylesheet" href="./myquiz.css"> 
+    <link rel="stylesheet" href="../quiz/myquiz.css"> 
 </head>
 <body>
     <h1>Quiz disponibles</h1>
