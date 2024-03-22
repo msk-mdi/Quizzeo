@@ -12,13 +12,36 @@ h2 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    font-family: "Nunito", sans-serif;
+    background-image: linear-gradient(45deg, #ffda55, #ff5555, #7d55ff);
+    color: white;
+}   
+
+.jouer{
     font-family: "Nunito", sans-serif;
     margin-top: 20px;
+    border: solid rgb(255, 218, 85);
+    border-radius: 10px;
+    gap: 100px;
+    padding: 10px;
 }
 
-.button {
-    border-radius: 5px;
+.jouer h1{
+    font-size: 50px;
+}
+.jouer p{
+    font-size: 35px;
 }
 
+.questionnaire{
+    font-size: 20px;
+}
+.button{
+    text-align: center;
+    margin: 30px;
+    font-size: 20px;
+}
 
 

@@ -11,10 +11,9 @@ include('../accueil/header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer votre quiz</title>
     <script>
-        var nombreDeQuestions = 0; // Variable globale pour suivre le nombre de questions ajoutées
-        var questions = []; // Tableau pour stocker les références de chaque question ajoutée
+        var nombreDeQuestions = 0;
+        var questions = [];
 
-        // Fonction pour ajouter dynamiquement une nouvelle question
         function ajouterQuestion() {
             if (nombreDeQuestions < 5) {
                 nombreDeQuestions++;
@@ -53,11 +52,10 @@ include('../accueil/header.php');
             }
         }
 
-        // Fonction pour supprimer la dernière question ajoutée
         function supprimerDerniereQuestion() {
             if (nombreDeQuestions > 1) {
-                var derniereQuestion = questions.pop(); // Retirer la dernière question du tableau
-                derniereQuestion.remove(); // Supprimer la dernière question du DOM
+                var derniereQuestion = questions.pop(); 
+                derniereQuestion.remove();
                 nombreDeQuestions--;
             }
         }
