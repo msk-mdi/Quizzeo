@@ -16,7 +16,7 @@ $user_id = isset($_SESSION['id']);
     <header>
         <nav>
             <div class='logo'>
-                <a href="../accueil/accueil.php">
+                <a href="../accueil/index.php">
                 <img src="../accueil/assets/quizzeo.png" alt="logo"/> 
                 </a>
             </div>
